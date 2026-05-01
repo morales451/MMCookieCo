@@ -7,9 +7,17 @@ html {
 }
 
 body {
-  @apply bg-cream text-chocolate font-sans antialiased;
+  @apply bg-cream text-brown font-sans antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
   @apply font-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    scroll-behavior: auto;
+  }
 }

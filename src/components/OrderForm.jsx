@@ -1,21 +1,24 @@
 const fieldClasses =
-  'mt-2 block w-full rounded-xl border border-chocolate/20 bg-white px-4 py-3 text-chocolate placeholder:text-chocolate/40 focus:border-bakeryPink focus:ring-2 focus:ring-bakeryPink/40 outline-none transition-colors';
+  'mt-2 block w-full rounded-xl border border-brown/15 bg-cream px-4 py-3 text-brown placeholder:text-brown/35 focus:border-mauve focus:ring-2 focus:ring-mauve/40 outline-none transition-colors';
 
-const labelClasses = 'block text-sm font-medium text-chocolate';
+const labelClasses =
+  'block text-xs font-medium text-brown/80 uppercase tracking-widest';
 
 export default function OrderForm() {
   return (
-    <section id="order" className="py-20 md:py-28 bg-cream">
+    <section id="order" className="py-28 md:py-36 bg-beige">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-10">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-chocolate">
+        <div className="text-center mb-14">
+          <p className="text-xs uppercase tracking-widest text-tan font-medium">
+            Get In Touch
+          </p>
+          <h2 className="mt-4 font-serif text-4xl md:text-6xl font-bold text-brown leading-tight">
             Request an Order
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-bakeryPink" />
-          <p className="mt-6 italic text-chocolate/70 max-w-xl mx-auto leading-relaxed">
-            This form is for order requests only. We will review your request
+          <p className="mt-7 italic text-brown/65 max-w-xl mx-auto leading-relaxed">
+            This form is for order requests only. We'll review your request
             and contact you directly to coordinate payment and confirm your
-            pickup/delivery details in Houston.
+            pickup or delivery details in Houston.
           </p>
         </div>
 
@@ -25,7 +28,7 @@ export default function OrderForm() {
           action="/thanks/"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          className="bg-white rounded-2xl shadow-soft p-6 md:p-10 space-y-6"
+          className="bg-cream rounded-2xl shadow-soft p-7 md:p-12 space-y-7"
         >
           <input type="hidden" name="form-name" value="order-request" />
           <p hidden>
@@ -37,7 +40,7 @@ export default function OrderForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="full-name" className={labelClasses}>
-                Full Name <span className="text-maroon">*</span>
+                Full Name <span className="text-mauve">*</span>
               </label>
               <input
                 id="full-name"
@@ -51,7 +54,7 @@ export default function OrderForm() {
 
             <div>
               <label htmlFor="email" className={labelClasses}>
-                Email <span className="text-maroon">*</span>
+                Email <span className="text-mauve">*</span>
               </label>
               <input
                 id="email"
@@ -65,7 +68,7 @@ export default function OrderForm() {
 
             <div>
               <label htmlFor="phone" className={labelClasses}>
-                Phone Number <span className="text-maroon">*</span>
+                Phone <span className="text-mauve">*</span>
               </label>
               <input
                 id="phone"
@@ -79,8 +82,7 @@ export default function OrderForm() {
 
             <div>
               <label htmlFor="pickup-date" className={labelClasses}>
-                Desired Pickup/Delivery Date{' '}
-                <span className="text-maroon">*</span>
+                Pickup / Delivery Date <span className="text-mauve">*</span>
               </label>
               <input
                 id="pickup-date"
@@ -107,15 +109,14 @@ export default function OrderForm() {
 
           <div>
             <label htmlFor="order-details" className={labelClasses}>
-              What would you like to order?{' '}
-              <span className="text-maroon">*</span>
+              What would you like to order? <span className="text-mauve">*</span>
             </label>
             <textarea
               id="order-details"
               name="order-details"
               required
               rows={4}
-              placeholder="e.g. 1 dozen Classic Chocolate Chip, 6 Funfetti Sugar"
+              placeholder="e.g. 1 cookie cake (chocolate chip) for Saturday"
               className={fieldClasses}
             />
           </div>
@@ -128,17 +129,19 @@ export default function OrderForm() {
               id="custom-notes"
               name="custom-notes"
               rows={3}
-              placeholder="Special occasions, packaging requests, anything we should know"
+              placeholder="Special occasions, message on the cake, packaging requests"
               className={fieldClasses}
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full md:w-auto px-10 py-3 rounded-full bg-bakeryPink text-chocolate font-semibold tracking-wide shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-          >
-            Send Order Request
-          </button>
+          <div className="pt-2 text-center md:text-left">
+            <button
+              type="submit"
+              className="w-full md:w-auto px-10 py-3.5 rounded-full bg-brown text-cream font-medium tracking-wider text-sm uppercase shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:bg-mauve"
+            >
+              Send Order Request
+            </button>
+          </div>
         </form>
       </div>
     </section>

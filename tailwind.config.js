@@ -4,17 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        chocolate: '#4A2B18',
-        bakeryPink: '#F6C8D1',
-        cream: '#FFFDFB',
-        maroon: '#8A2C38',
+        cream: '#F7F3EF',
+        beige: '#E8DED6',
+        tan: '#D2B8A3',
+        mauve: '#C9A3A3',
+        lilac: '#D8CFE3',
+        brown: '#6B4F3A',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 4px 20px rgba(74, 43, 24, 0.08)',
+        soft: '0 6px 24px rgba(107, 79, 58, 0.08)',
+        card: '0 10px 30px rgba(107, 79, 58, 0.10)',
+      },
+      letterSpacing: {
+        wider: '0.08em',
+        widest: '0.22em',
       },
     },
   },

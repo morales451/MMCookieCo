@@ -1,9 +1,9 @@
 export default function OurStory() {
   return (
-    <section id="story" className="py-20 md:py-28 bg-bakeryPink/20">
+    <section id="story" className="py-28 md:py-36 bg-cream">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-14 md:gap-20">
+          <div className="w-full md:w-5/12">
             <img
               src="https://source.unsplash.com/800x900/?baker,woman,apron"
               alt="MM Cookie Co founder in her Houston kitchen"
@@ -12,32 +12,27 @@ export default function OurStory() {
             />
           </div>
 
-          <div className="w-full md:w-1/2">
-            <span className="text-maroon font-medium tracking-[0.2em] text-xs uppercase">
+          <div className="w-full md:w-7/12">
+            <p className="text-xs uppercase tracking-widest text-tan font-medium">
               Our Story
-            </span>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl font-bold text-chocolate leading-tight">
+            </p>
+            <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-brown leading-tight">
               Behind the Apron
             </h2>
-            <div className="mt-6 space-y-4 text-chocolate/80 leading-relaxed">
+            <div className="mt-8 space-y-5 text-brown/75 leading-relaxed text-lg">
               <p>
-                MM Cookie Co began the way the best things usually do — at home,
-                in a small Houston kitchen, with a mixer that never quite stopped
-                running. What started as treats for friends, neighbors, and
-                anyone lucky enough to drop by has grown into a boutique bakery
-                obsessed with one thing: the perfect cookie.
+                Baked fresh for every order, MM Cookie Co. is all about simple,
+                homemade treats that feel a little more special.
               </p>
-              <p className="italic text-chocolate">
+              <p className="italic text-brown">
                 Her deep love for baking and crafting the perfect dessert was
                 inspired by her dad, who served as the head of the bakery for
                 HEB.
               </p>
               <p>
-                Every recipe is small-batch, hand-mixed, and tested until it
-                feels like a gift worth giving. From thick, gooey chocolate chip
-                to plush red velvet, each cookie is a love letter to the people
-                who taught her that dessert is never just dessert — it's how you
-                show up for the ones you love.
+                Every recipe is small-batch, hand-mixed, and made the way
+                family recipes are meant to be — slowly, carefully, and with a
+                little extra love.
               </p>
             </div>
           </div>

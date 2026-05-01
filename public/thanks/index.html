@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Thank you — MM Cookie Co</title>
+    <title>Thank you — MM Cookie Co.</title>
     <link rel="icon" type="image/png" href="/unnamed.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,16 +14,18 @@
     />
     <style>
       :root {
-        --chocolate: #4a2b18;
-        --bakery-pink: #f6c8d1;
-        --cream: #fffdfb;
-        --maroon: #8a2c38;
+        --cream: #f7f3ef;
+        --beige: #e8ded6;
+        --tan: #d2b8a3;
+        --mauve: #c9a3a3;
+        --brown: #6b4f3a;
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
       body {
-        background: var(--cream);
-        color: var(--chocolate);
+        background:
+          radial-gradient(circle at 50% 25%, var(--cream) 0%, #efe7df 60%, var(--beige) 100%);
+        color: var(--brown);
         font-family: 'Montserrat', system-ui, sans-serif;
         min-height: 100vh;
         display: flex;
@@ -34,10 +36,10 @@
       main {
         max-width: 36rem;
         width: 100%;
-        background: #ffffff;
+        background: var(--cream);
         border-radius: 1.5rem;
-        box-shadow: 0 4px 20px rgba(74, 43, 24, 0.08);
-        padding: 3rem 2rem;
+        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+        padding: 3.5rem 2rem;
         text-align: center;
       }
       img.logo {
@@ -45,59 +47,71 @@
         height: 96px;
         border-radius: 9999px;
         object-fit: cover;
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 1.75rem;
         display: block;
-        box-shadow: 0 4px 12px rgba(74, 43, 24, 0.12);
+        box-shadow: 0 4px 16px rgba(107, 79, 58, 0.14);
+      }
+      .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        font-size: 0.7rem;
+        color: var(--tan);
+        font-weight: 500;
+        margin: 0 0 0.75rem;
       }
       h1 {
         font-family: 'Playfair Display', Georgia, serif;
         font-size: clamp(2rem, 5vw, 2.75rem);
         font-weight: 700;
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
         line-height: 1.15;
       }
       p {
-        line-height: 1.7;
-        color: rgba(74, 43, 24, 0.8);
+        line-height: 1.75;
+        color: rgba(107, 79, 58, 0.75);
         margin: 0 0 1rem;
       }
       .accent {
-        color: var(--maroon);
+        color: var(--brown);
         font-weight: 600;
       }
       a.button {
         display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.75rem 2rem;
+        margin-top: 1.75rem;
+        padding: 0.85rem 2.25rem;
         border-radius: 9999px;
-        background: var(--bakery-pink);
-        color: var(--chocolate);
+        background: var(--brown);
+        color: var(--cream);
         text-decoration: none;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        box-shadow: 0 4px 12px rgba(74, 43, 24, 0.12);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        box-shadow: 0 4px 16px rgba(107, 79, 58, 0.14);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
       }
       a.button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(74, 43, 24, 0.18);
+        box-shadow: 0 10px 24px rgba(107, 79, 58, 0.2);
+        background: var(--mauve);
       }
     </style>
   </head>
   <body>
     <main>
-      <img src="/unnamed.png" alt="MM Cookie Co logo" class="logo" />
-      <h1>Thank you — your request is in!</h1>
+      <img src="/unnamed.png" alt="MM Cookie Co. logo" class="logo" />
+      <p class="eyebrow">Order Received</p>
+      <h1>Thank you — your request is in.</h1>
       <p>
         We've received your order request and we'll review it shortly. You can
         expect a personal reply <span class="accent">within 24 hours</span> to
         coordinate payment, pickup, or local Houston delivery.
       </p>
       <p>
-        In the meantime, follow along on Instagram for fresh batches, behind-the-scenes,
-        and the occasional warm-cookie giveaway.
+        In the meantime, follow along on Instagram for fresh batches and
+        behind-the-scenes from the kitchen.
       </p>
-      <a class="button" href="/">Back to MM Cookie Co</a>
+      <a class="button" href="/">Back to MM Cookie Co.</a>
     </main>
   </body>
 </html>
