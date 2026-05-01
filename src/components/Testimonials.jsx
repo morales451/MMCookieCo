@@ -2,7 +2,7 @@ const testimonials = [
   {
     name: 'Alexis Morales',
     quote:
-      "Okay these are just good. Like, really good. I made my husband try one with zero context and his whole face changed. We've already ordered three times this month and I'm not even sorry.",
+      "Okay these are just good. Like, really good. I made my wife try one with zero context and her whole face changed. We've already ordered three times this month and I'm not even sorry.",
   },
   {
     name: 'Wendy Martinez',
