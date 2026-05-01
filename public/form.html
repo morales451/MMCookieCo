@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Request — MM Cookie Co</title>
+  </head>
+  <body>
+    <!--
+      Static mirror of the React order form.
+      Netlify's post-processing bot crawls deployed HTML to register forms,
+      and React-rendered markup is invisible to it. This file makes the
+      "order-request" form discoverable so submissions are captured.
+    -->
+    <form name="order-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="order-request" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="full-name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="date" name="pickup-date" />
+      <input type="text" name="allergies" />
+      <textarea name="order-details"></textarea>
+      <textarea name="custom-notes"></textarea>
+    </form>
+  </body>
+</html>
