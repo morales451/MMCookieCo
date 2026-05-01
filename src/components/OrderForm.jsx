@@ -22,6 +22,7 @@ export default function OrderForm() {
         <form
           name="order-request"
           method="POST"
+          action="/thanks/"
           data-netlify="true"
           netlify-honeypot="bot-field"
           className="bg-white rounded-2xl shadow-soft p-6 md:p-10 space-y-6"

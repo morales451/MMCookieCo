@@ -4,7 +4,7 @@ export default function Hero() {
       className="relative min-h-[80vh] w-full bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage:
-          "url('https://source.unsplash.com/1600x900/?cookies,bakery')",
+          "url('https://plus.unsplash.com/premium_photo-1670895801135-858a7d167ea4?w=1800&q=80&auto=format&fit=crop')",
       }}
     >
       <div className="absolute inset-0 bg-chocolate/40" aria-hidden="true" />

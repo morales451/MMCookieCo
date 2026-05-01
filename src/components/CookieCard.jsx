@@ -1,10 +1,10 @@
-export default function CookieCard({ name, image, description, price }) {
+export default function CookieCard({ name, image, alt, description, price }) {
   return (
     <article className="bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="aspect-square overflow-hidden">
         <img
           src={image}
-          alt={name}
+          alt={alt || name}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
@@ -16,7 +16,9 @@ export default function CookieCard({ name, image, description, price }) {
         <p className="mt-2 text-chocolate/75 leading-relaxed text-sm">
           {description}
         </p>
-        <p className="mt-4 text-maroon font-semibold tracking-wide">{price}</p>
+        <span className="inline-block mt-4 px-4 py-1.5 rounded-full bg-bakeryPink/60 text-maroon font-semibold tracking-wide text-sm shadow-sm">
+          {price}
+        </span>
       </div>
     </article>
   );

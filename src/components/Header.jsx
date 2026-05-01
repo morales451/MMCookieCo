@@ -10,9 +10,17 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="#top"
-          className="font-serif font-bold text-2xl md:text-3xl text-chocolate tracking-tight"
+          className="flex items-center gap-3 text-chocolate"
+          aria-label="MM Cookie Co — back to top"
         >
-          MM Cookie Co
+          <img
+            src="/unnamed.png"
+            alt=""
+            className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover ring-1 ring-chocolate/10"
+          />
+          <span className="font-serif font-bold text-xl md:text-2xl tracking-tight hidden sm:inline">
+            MM Cookie Co
+          </span>
         </a>
         <nav className="flex items-center gap-5 sm:gap-8 text-sm sm:text-base font-medium">
           {links.map((link) => (
