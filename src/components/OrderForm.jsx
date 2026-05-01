@@ -134,6 +134,19 @@ export default function OrderForm() {
             />
           </div>
 
+          <div>
+            <label htmlFor="referred-by" className={labelClasses}>
+              Referred By <span className="text-brown/40 normal-case tracking-normal text-[10px]">(optional — they get $5 off too)</span>
+            </label>
+            <input
+              id="referred-by"
+              name="referred-by"
+              type="text"
+              placeholder="Friend's full name"
+              className={fieldClasses}
+            />
+          </div>
+
           <div className="pt-2 text-center md:text-left">
             <button
               type="submit"

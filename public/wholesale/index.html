@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wholesale &amp; Corporate Gifting — MM Cookie Co.</title>
+    <meta
+      name="description"
+      content="Boutique cookie boxes for offices, conferences, real-estate closings, and corporate gifting in Houston, TX. Bulk pricing and custom branding available."
+    />
+    <link rel="canonical" href="https://mmcookieco.netlify.app/wholesale/" />
+    <link rel="icon" type="image/png" href="/unnamed.png" />
+    <link rel="apple-touch-icon" href="/unnamed.png" />
+    <meta name="theme-color" content="#F7F3EF" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MM Cookie Co." />
+    <meta property="og:url" content="https://mmcookieco.netlify.app/wholesale/" />
+    <meta property="og:title" content="Wholesale & Corporate Gifting — MM Cookie Co." />
+    <meta
+      property="og:description"
+      content="Cookie boxes for offices, conferences, and corporate gifts in Houston, TX."
+    />
+    <meta property="og:image" content="https://mmcookieco.netlify.app/unnamed.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f7f3ef;
+        --beige: #e8ded6;
+        --tan: #d2b8a3;
+        --mauve: #c9a3a3;
+        --lilac: #d8cfe3;
+        --brown: #6b4f3a;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        background: var(--cream);
+        color: var(--brown);
+        font-family: 'Montserrat', system-ui, sans-serif;
+        line-height: 1.6;
+      }
+      a { color: inherit; }
+      .serif { font-family: 'Playfair Display', Georgia, serif; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+      .narrow { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+      header.site {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(247, 243, 239, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(107, 79, 58, 0.06);
+      }
+      header.site .row {
+        max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem;
+        display: flex; align-items: center; justify-content: space-between;
+      }
+      header.site a.brand {
+        display: flex; align-items: center; gap: 0.75rem;
+        text-decoration: none; color: var(--brown);
+      }
+      header.site img.logo {
+        height: 44px; width: 44px; border-radius: 9999px; object-fit: cover;
+        box-shadow: inset 0 0 0 1px rgba(107, 79, 58, 0.1);
+      }
+      header.site .brand-name {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700; font-size: 1.15rem;
+      }
+      header.site nav a {
+        font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em;
+        text-decoration: none; color: rgba(107, 79, 58, 0.7);
+        margin-left: 1.75rem; transition: color 0.2s ease;
+      }
+      header.site nav a:hover { color: var(--mauve); }
+
+      .hero {
+        background: radial-gradient(circle at 50% 25%, var(--cream) 0%, #efe7df 60%, var(--beige) 100%);
+        padding: 5rem 0 6rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .eyebrow {
+        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.22em;
+        color: var(--tan); font-weight: 500;
+      }
+      h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700;
+        line-height: 1.1; margin: 1rem 0 1.5rem;
+      }
+      .lead { font-size: 1.1rem; color: rgba(107, 79, 58, 0.7); max-width: 36rem; margin: 0 auto; }
+
+      section { padding: 5rem 0; }
+      section.beige { background: rgba(232, 222, 214, 0.4); }
+      section h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+        line-height: 1.15; margin: 0.75rem 0 1.25rem;
+      }
+      section .section-head { text-align: center; margin-bottom: 3rem; }
+
+      .grid-3 {
+        display: grid; gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      .card {
+        background: var(--cream); border-radius: 1.25rem; padding: 2rem;
+        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+      }
+      .card .card-eyebrow {
+        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
+        color: var(--tan); font-weight: 500;
+      }
+      .card h3 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 600; font-size: 1.5rem; margin: 0.5rem 0 0.25rem;
+      }
+      .card .price { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 2rem; margin: 1rem 0 0.5rem; }
+      .card ul { list-style: none; padding: 0; margin: 1rem 0 0; font-size: 0.9rem; color: rgba(107, 79, 58, 0.75); }
+      .card ul li { padding-left: 1.25rem; position: relative; margin: 0.4rem 0; }
+      .card ul li::before { content: '✦'; color: var(--mauve); position: absolute; left: 0; top: 0; }
+
+      .uses {
+        display: grid; gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-top: 1.5rem;
+      }
+      .use {
+        background: var(--cream); border-radius: 1rem; padding: 1.25rem 1.5rem;
+        font-size: 0.95rem;
+        border-left: 3px solid var(--mauve);
+      }
+      .use strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 600; color: var(--brown); margin-bottom: 0.25rem; }
+      .use span { color: rgba(107, 79, 58, 0.65); font-size: 0.85rem; }
+
+      form.inquiry {
+        background: var(--cream); border-radius: 1.5rem; padding: 2.5rem 1.75rem;
+        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+        display: grid; gap: 1.25rem;
+      }
+      form.inquiry .row2 { display: grid; gap: 1.25rem; grid-template-columns: 1fr 1fr; }
+      @media (max-width: 600px) { form.inquiry .row2 { grid-template-columns: 1fr; } }
+      form.inquiry label {
+        display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
+        color: rgba(107, 79, 58, 0.8); font-weight: 500; margin-bottom: 0.5rem;
+      }
+      form.inquiry input, form.inquiry textarea, form.inquiry select {
+        width: 100%; border: 1px solid rgba(107, 79, 58, 0.15);
+        background: var(--cream); border-radius: 0.75rem;
+        padding: 0.85rem 1rem; font-family: inherit; font-size: 1rem; color: var(--brown);
+        outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      form.inquiry input:focus, form.inquiry textarea:focus, form.inquiry select:focus {
+        border-color: var(--mauve); box-shadow: 0 0 0 3px rgba(201, 163, 163, 0.25);
+      }
+      form.inquiry button {
+        appearance: none; border: 0; cursor: pointer;
+        background: var(--brown); color: var(--cream);
+        padding: 0.95rem 2rem; border-radius: 9999px;
+        font-family: inherit; font-size: 0.85rem; font-weight: 500;
+        text-transform: uppercase; letter-spacing: 0.15em;
+        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.12);
+        transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      }
+      form.inquiry button:hover { transform: translateY(-2px); background: var(--mauve); box-shadow: 0 10px 28px rgba(107, 79, 58, 0.18); }
+      .req { color: var(--mauve); }
+      .hidden-honeypot { display: none; }
+
+      footer.site {
+        background: var(--beige);
+        padding: 3rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: rgba(107, 79, 58, 0.65);
+      }
+      footer.site a { color: var(--brown); text-decoration: none; font-weight: 500; }
+      footer.site a:hover { color: var(--mauve); }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="row">
+        <a href="/" class="brand">
+          <img src="/unnamed.png" alt="" class="logo" />
+          <span class="brand-name">MM Cookie Co.</span>
+        </a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/#order">Standard Orders</a>
+          <a href="#inquiry">Inquire</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="narrow">
+        <p class="eyebrow">Wholesale &amp; Corporate</p>
+        <h1>Cookies that say thank you for you.</h1>
+        <p class="lead">
+          Boutique cookie boxes for your team, your clients, and the moments
+          worth marking. Hand-baked in Houston, packaged in cream and ribbon,
+          delivered ready to give.
+        </p>
+        <a
+          href="#inquiry"
+          style="
+            display: inline-block; margin-top: 2rem;
+            padding: 0.95rem 2.25rem; border-radius: 9999px;
+            background: var(--brown); color: var(--cream);
+            text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            box-shadow: 0 6px 24px rgba(107, 79, 58, 0.12);
+            transition: transform 0.25s ease, background 0.25s ease;
+          "
+          onmouseover="this.style.transform='translateY(-2px)';this.style.background='var(--mauve)'"
+          onmouseout="this.style.transform='';this.style.background='var(--brown)'"
+        >
+          Request a Quote
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Bulk Boxes</p>
+          <h2>Three sizes, fully customizable.</h2>
+          <p class="lead">
+            Mix any of our signature flavors. Add your branding, gift tags, or a
+            custom note in each box.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <p class="card-eyebrow">Small</p>
+            <h3>The Office Drop</h3>
+            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+              Two dozen cookies. Perfect for a small team meeting, a client
+              touch, or a Friday afternoon win.
+            </p>
+            <p class="price">$72</p>
+            <ul>
+              <li>2 dozen mixed flavors</li>
+              <li>Branded gift tag</li>
+              <li>Cream ribbon &amp; tissue</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="card-eyebrow">Medium</p>
+            <h3>The Team Box</h3>
+            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+              Four dozen cookies. Great for a department, a client closing, or
+              a thoughtful holiday round.
+            </p>
+            <p class="price">$135</p>
+            <ul>
+              <li>4 dozen mixed flavors</li>
+              <li>Custom card insert</li>
+              <li>Hand-tied packaging</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <p class="card-eyebrow">Large</p>
+            <h3>The Event Spread</h3>
+            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+              Eight dozen cookies. Built for conferences, weddings, launches,
+              and offices that want to be remembered.
+            </p>
+            <p class="price">$255</p>
+            <ul>
+              <li>8 dozen mixed flavors</li>
+              <li>Custom branding options</li>
+              <li>Tray or boxed delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="beige">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What They're Really For</p>
+          <h2>Made for the moments that matter.</h2>
+        </div>
+        <div class="uses">
+          <div class="use"><strong>Real Estate Closings</strong><span>Sweet reminder of the keys you just handed over.</span></div>
+          <div class="use"><strong>Client Thank-Yous</strong><span>The kind of gift that gets a screenshot.</span></div>
+          <div class="use"><strong>Office Celebrations</strong><span>Birthdays, retirements, hitting the quarterly number.</span></div>
+          <div class="use"><strong>Conferences &amp; Events</strong><span>A welcome that's warmer than a swag bag.</span></div>
+          <div class="use"><strong>Holiday Gifting</strong><span>Bulk-friendly without ever feeling bulk.</span></div>
+          <div class="use"><strong>Wedding Welcomes</strong><span>Hotel-room favors that feel hand-picked.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inquiry">
+      <div class="narrow">
+        <div class="section-head">
+          <p class="eyebrow">Get In Touch</p>
+          <h2>Tell us about your event.</h2>
+          <p class="lead">
+            Fill in a few details and we'll send pricing, availability, and a
+            sample mockup within a business day.
+          </p>
+        </div>
+
+        <form
+          class="inquiry"
+          name="wholesale-inquiry"
+          method="POST"
+          action="/thanks/"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="wholesale-inquiry" />
+          <p class="hidden-honeypot"><label>Don't fill: <input name="bot-field" /></label></p>
+
+          <div class="row2">
+            <div>
+              <label for="company">Company / Organization <span class="req">*</span></label>
+              <input id="company" name="company" type="text" required />
+            </div>
+            <div>
+              <label for="contact-name">Contact Name <span class="req">*</span></label>
+              <input id="contact-name" name="contact-name" type="text" required />
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+          </div>
+
+          <div class="row2">
+            <div>
+              <label for="occasion">Occasion / Event Type <span class="req">*</span></label>
+              <select id="occasion" name="occasion" required>
+                <option value="">Select one…</option>
+                <option>Real Estate Closing</option>
+                <option>Client Gift</option>
+                <option>Office Celebration</option>
+                <option>Conference / Event</option>
+                <option>Holiday Gifting</option>
+                <option>Wedding</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="quantity">Approx. Quantity <span class="req">*</span></label>
+              <select id="quantity" name="quantity" required>
+                <option value="">Select one…</option>
+                <option>1 – 2 dozen</option>
+                <option>3 – 4 dozen</option>
+                <option>5 – 8 dozen</option>
+                <option>9 – 15 dozen</option>
+                <option>15+ dozen</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="needed-by">When do you need them by?</label>
+            <input id="needed-by" name="needed-by" type="date" />
+          </div>
+
+          <div>
+            <label for="details">Anything we should know?</label>
+            <textarea
+              id="details"
+              name="details"
+              rows="5"
+              placeholder="Branding, dietary restrictions, delivery details, special asks..."
+            ></textarea>
+          </div>
+
+          <button type="submit">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site">
+      <p>
+        © 2026 MM Cookie Co. — Houston, TX &nbsp;·&nbsp;
+        <a href="/">Back to home</a>
+      </p>
+    </footer>
+  </body>
+</html>

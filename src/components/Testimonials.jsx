@@ -7,7 +7,7 @@ const testimonials = [
   {
     name: 'Wendy Martinez',
     quote:
-      "Got these for my daughter's birthday and they were gone in fifteen minutes. The kids loved them, but I caught my husband sneaking seconds when nobody was looking. Definitely ordering again for her next party.",
+      "Surprised my husband with a cookie cake for his birthday and it was gone before we even cut into it properly. He's usually not big on sweets and he had three slices. Already planning the next one for our anniversary.",
   },
   {
     name: 'Ana Rojas',
@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: 'Eric Rodriguez',
     quote:
-      'Not really a sweets guy. Tried one. Ordered a dozen the next day. Ate four standing in the kitchen before I sat down.',
+      "Picked some up for my husband's birthday. Wasn't planning to try one. Ate four standing in the parking lot before I made it home.",
   },
   {
     name: 'Francesca Rodriguez',

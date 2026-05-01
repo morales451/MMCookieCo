@@ -2,15 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Order Request — MM Cookie Co</title>
+    <title>Forms — MM Cookie Co.</title>
+    <meta name="robots" content="noindex" />
   </head>
   <body>
     <!--
-      Static mirror of the React order form.
+      Static mirrors of the React-rendered forms.
       Netlify's post-processing bot crawls deployed HTML to register forms,
-      and React-rendered markup is invisible to it. This file makes the
-      "order-request" form discoverable so submissions are captured.
+      and React-rendered markup is invisible to it. This file makes every
+      client-rendered form discoverable so submissions are captured.
     -->
+
     <form name="order-request" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="order-request" />
       <input type="text" name="bot-field" />
@@ -21,6 +23,19 @@
       <input type="text" name="allergies" />
       <textarea name="order-details"></textarea>
       <textarea name="custom-notes"></textarea>
+      <input type="text" name="referred-by" />
+    </form>
+
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="newsletter" />
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
+    </form>
+
+    <form name="club-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="club-waitlist" />
+      <input type="text" name="bot-field" />
+      <input type="email" name="email" />
     </form>
   </body>
 </html>

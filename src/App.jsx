@@ -1,18 +1,25 @@
+import BrandIntro from './components/BrandIntro.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Menu from './components/Menu.jsx';
 import CookieCakeGuide from './components/CookieCakeGuide.jsx';
+import CookieClub from './components/CookieClub.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import CTABanner from './components/CTABanner.jsx';
 import OurStory from './components/OurStory.jsx';
 import Instagram from './components/Instagram.jsx';
 import FAQ from './components/FAQ.jsx';
+import PickupMap from './components/PickupMap.jsx';
+import Referral from './components/Referral.jsx';
 import OrderForm from './components/OrderForm.jsx';
 import Footer from './components/Footer.jsx';
+import StickyOrderCTA from './components/StickyOrderCTA.jsx';
+import ExitIntent from './components/ExitIntent.jsx';
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
+      <BrandIntro />
       <Header />
       <main className="flex-1">
         <Hero />
@@ -26,6 +33,7 @@ export default function App() {
         />
         <Menu />
         <CookieCakeGuide />
+        <CookieClub />
         <Testimonials />
         <CTABanner
           eyebrow="Limited Availability Each Week"
@@ -38,9 +46,13 @@ export default function App() {
         <OurStory />
         <Instagram />
         <FAQ />
+        <PickupMap />
+        <Referral />
         <OrderForm />
       </main>
       <Footer />
+      <StickyOrderCTA />
+      <ExitIntent />
     </div>
   );
 }
