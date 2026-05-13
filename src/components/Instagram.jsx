@@ -1,8 +1,6 @@
-// Instagram feed — placeholder.
-// Once the handle is confirmed, replace the placeholder grid below with
-// either a Behold (https://behold.so) or SnapWidget embed and update the
-// handle constant. Both services drop in as a single <script> + container.
-const HANDLE = 'mmcookieco';
+// Instagram feed — placeholder grid until a Behold (https://behold.so) or
+// SnapWidget embed is wired up. Both drop in as a single <script> + container.
+const HANDLE = 'mm_cookie_co';
 const PROFILE_URL = `https://instagram.com/${HANDLE}`;
 
 function InstagramIcon() {

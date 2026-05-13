@@ -60,12 +60,12 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-base">
             <li>
               <a
-                href="https://instagram.com/mmcookieco"
+                href="https://instagram.com/mm_cookie_co"
                 target="_blank"
                 rel="noreferrer"
                 className="text-brown hover:text-mauve transition-colors"
               >
-                @mmcookieco
+                @mm_cookie_co
               </a>
             </li>
             <li>
