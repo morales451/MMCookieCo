@@ -127,7 +127,7 @@ export default function WholesalePage() {
                 </div>
               </form>
             </div>
-            <NachoPack sticker={company.trim() || 'Your company'} className="mx-auto w-full max-w-[36rem] rotate-2 drop-shadow-xl" />
+            <NachoPack sticker={company.trim() || 'Your company'} className="mx-auto w-full max-w-[36rem] rotate-2" />
           </div>
         </section>
 

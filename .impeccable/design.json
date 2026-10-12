@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-12T00:27:27+00:00",
+  "generatedAt": "2026-10-12T00:45:42+00:00",
   "title": "Design System: MM Cookie Co.",
   "extensions": {
     "colorMeta": {
@@ -173,7 +173,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline only."
+        "purpose": "Page-opening headline only: Cookie Nachos in the dip, the wholesale opener."
       },
       "headline": {
         "displayName": "Headline",
@@ -197,11 +197,11 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Legends on the hero composer."
+        "purpose": "Legends on the opening quote forms and the cake composer."
       },
       "script": {
         "displayName": "Piped Script",
-        "purpose": "Piped cake messages, customer signatures, the footer wordmark."
+        "purpose": "Piped cake messages, customer signatures, the footer wordmark, stickers on a pack."
       }
     },
     "frostings": {
@@ -232,7 +232,7 @@
       "doughElevation": 52,
       "glossElevation": 60,
       "specularElevation": 48,
-      "note": "All drawn baked goods share one upper-left light and a top-down view (src/components/bake/bake.jsx DoughFilter, GlossFilter)."
+      "note": "All drawn chips, bowls, packs, cookies, and cakes share one upper-left light and a top-down view (src/components/bake/bake.jsx DoughFilter, GlossFilter; Nachos.jsx reuses both)."
     },
     "shadows": [
       {
@@ -243,7 +243,12 @@
       {
         "name": "lift",
         "value": "0 18px 40px -18px rgba(43, 22, 16, 0.55)",
-        "purpose": "Button hover; objects on the field: dozen box, map frame, story badge, dialog."
+        "purpose": "Button hover; framed objects on the field: map frame, story badge."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 3px 0 0 #C93A68",
+        "purpose": "Raspberry underline shadow doubling the 3px focus underline on every field."
       }
     ],
     "motion": [
@@ -268,6 +273,21 @@
         "purpose": "Drawn cookies and cakes turn on row hover."
       },
       {
+        "name": "nacho-dip",
+        "value": "0.42s cubic-bezier(0.65, 0, 0.35, 1), translateY(-46px)",
+        "purpose": "A chip slides toward the bowl to dip."
+      },
+      {
+        "name": "nacho-coat",
+        "value": "0.38s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Buttercream coat reveals on the dipped chip."
+      },
+      {
+        "name": "nacho-cadence",
+        "value": "1900ms",
+        "purpose": "One inner-ring chip dips itself per beat until all are coated; also on pointer hover. Static under reduced motion."
+      },
+      {
         "name": "reduced-motion",
         "value": "0.001ms",
         "purpose": "All transitions and animations collapse under prefers-reduced-motion."
@@ -286,7 +306,29 @@
         "name": "lg",
         "value": "1024px"
       }
-    ]
+    ],
+    "nachos": {
+      "chipGradient": [
+        "#E9B677",
+        "#E7B171",
+        "#C88A45",
+        "#A9682B"
+      ],
+      "dip": "#FFF4E6",
+      "dipSwirl": "#EBD5B8",
+      "bowlRim": "#C93A68",
+      "bowlRimInner": "#A92D55",
+      "source": "src/components/bake/Nachos.jsx (NachoChip, DipBowl, NachoPack with optional sticker)"
+    },
+    "rosetteSprite": {
+      "symbols": [
+        "rosette-strawberry",
+        "rosette-vanilla",
+        "rosette-chocolate",
+        "rosette-sky"
+      ],
+      "note": "RosetteSprite (src/components/bake/bake.jsx) draws each frosting once; render it once per page before any Rosette, which places it with <use>."
+    }
   },
   "components": [
     {
@@ -294,7 +336,7 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Chocolate pill for the main action on pink, dough, or vanilla fields.",
-      "html": "<div class=\"ds-ground-pink\"><button class=\"ds-btn-choc\">Request this cake <svg viewBox=\"0 0 20 20\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div>",
+      "html": "<div class=\"ds-ground-pink\"><button class=\"ds-btn-choc\">Get a Cookie Nachos quote <svg viewBox=\"0 0 20 20\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div>",
       "css": ".ds-ground-pink{background:#F06A93;padding:24px;} .ds-btn-choc{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;border:0;border-radius:9999px;padding:14px 28px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 14px -6px rgba(43,22,16,0.5);transition:transform 200ms ease-out,background-color 200ms ease-out,box-shadow 200ms ease-out;background:#2B1610;color:#FFF4E6;} .ds-btn-choc:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px rgba(43,22,16,0.55);background:#4A2A1C;} .ds-btn-choc:active{transform:translateY(0);} .ds-btn-choc:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
     },
     {
@@ -317,9 +359,17 @@
       "name": "Underlined Field",
       "kind": "input",
       "refersTo": "field",
-      "description": "No box: type set on the field over a 3px chocolate underline that turns raspberry on focus.",
-      "html": "<div class=\"ds-ground-dough\"><label class=\"ds-field-label\" for=\"ds-name\">Full name <span class=\"ds-req\">*</span></label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Your name\"></div>",
-      "css": ".ds-ground-dough{background:#DDA15E;padding:24px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-field-label{display:block;font-weight:800;color:#2B1610;} .ds-req{color:#C93A68;} .ds-field{display:block;width:100%;margin-top:4px;border:0;border-bottom:3px solid #2B1610;border-radius:0;background:transparent;padding:6px 0 8px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1.125rem;font-weight:600;color:#2B1610;caret-color:#C93A68;outline:none;transition:border-color 150ms;} .ds-field::placeholder{color:rgba(43,22,16,0.55);font-weight:500;} .ds-field:focus{border-bottom-color:#C93A68;}"
+      "description": "No box: type set on the field over a 3px chocolate underline that turns raspberry, doubled by a 3px raspberry underline shadow, on focus.",
+      "html": "<div class=\"ds-ground-dough\"><label class=\"ds-field-label\" for=\"ds-name\">Full name <span aria-hidden=\"true\">*</span></label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Your name\"></div>",
+      "css": ".ds-ground-dough{background:#DDA15E;padding:24px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-field-label{display:block;font-weight:800;color:#2B1610;} .ds-field{display:block;width:100%;margin-top:4px;border:0;border-bottom:3px solid #2B1610;border-radius:0;background:transparent;padding:6px 0 8px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1.125rem;font-weight:600;color:#2B1610;caret-color:#C93A68;outline:none;transition:border-color 150ms,box-shadow 150ms;} .ds-field::placeholder{color:rgba(43,22,16,0.75);font-weight:500;} .ds-field:focus{border-bottom-color:#C93A68;box-shadow:0 3px 0 0 #C93A68;}"
+    },
+    {
+      "name": "Headcount Chips",
+      "kind": "chip",
+      "refersTo": "headcount-chip",
+      "description": "Quick headcounts beside the guests field; the chosen count fills chocolate.",
+      "html": "<div class=\"ds-ground-pink4\"><div class=\"ds-hc\" role=\"group\" aria-label=\"Quick headcounts\"><button aria-pressed=\"false\">25</button><button aria-pressed=\"true\" class=\"ds-hc-on\">50</button><button aria-pressed=\"false\">100</button></div></div>",
+      "css": ".ds-ground-pink4{background:#F06A93;padding:24px;} .ds-hc{display:flex;gap:6px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-hc button{min-height:44px;border:0;border-radius:9999px;padding:0 14px;font-size:1rem;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;background:rgba(249,184,203,0.6);color:#2B1610;transition:background-color 150ms,color 150ms;} .ds-hc button:hover{background:#F9B8CB;} .ds-hc button.ds-hc-on{background:#2B1610;color:#FFF4E6;} .ds-hc button:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
     },
     {
       "name": "Size Switch",
@@ -334,7 +384,7 @@
       "kind": "nav",
       "refersTo": "nav-link",
       "description": "Sticky pink header; bold chocolate links that fill chocolate on hover.",
-      "html": "<nav class=\"ds-nav\"><span class=\"ds-mark\">MM Cookie Co.</span><span class=\"ds-links\"><a href=\"#\">Menu</a><a href=\"#\">Cake sizes</a><a href=\"#\">FAQ</a></span></nav>",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-mark\">MM Cookie Co.</span><span class=\"ds-links\"><a href=\"#\">Cookie Nachos</a><a href=\"#\">Cookie cakes</a><a href=\"#\">Menu</a><a href=\"#\">FAQ</a></span></nav>",
       "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:4.5rem;padding:0 24px;background:rgba(240,106,147,0.95);font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-mark{font-size:1.6rem;font-weight:800;font-stretch:80%;letter-spacing:-0.035em;color:#2B1610;} .ds-links{display:flex;gap:4px;} .ds-links a{border-radius:9999px;padding:8px 14px;font-weight:700;color:#2B1610;text-decoration:none;transition:background-color 150ms,color 150ms;} .ds-links a:hover{background:#2B1610;color:#F9B8CB;} .ds-links a:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
     },
     {
@@ -363,11 +413,11 @@
     }
   ],
   "narrative": {
-    "northStar": "The Cookie Cake From Above",
-    "overview": "The site is a bakery table seen from directly overhead. Every cookie and cookie cake is drawn top-down at true relative scale, lit from the upper left, and the visitor's own words are piped across the largest one in glossy buttercream script. The page is made of the materials of the product itself: strawberry-buttercream pink, baked-dough gold, dark chocolate, and vanilla buttercream, with sprinkle confetti appearing only as sprinkles.\n\nEach section floods a single field color edge to edge and sets its content straight onto that field: headlines, paragraphs, prices, and rules, with no cards between the field and the type. Star-tip rosette borders are piped across the seams where one field meets the next. Headlines are a plump, condensed, extra-bold grotesk set tight and sized fluidly (the frontmatter gives each role's maximum; Typography gives the clamp); anything written by hand (a cake message, a customer's name, the wordmark in the footer) is in a piped script. Choices are all visible at once, and the selected one snaps forward.\n\nThe world was built to replace a cream boutique look with a serif title, centered logo, and a row of product cards; it does not return to that look.",
+    "northStar": "The Bakery Table From Above",
+    "overview": "The site is a bakery table seen from directly overhead. It opens on the lead product, Cookie Nachos: cookie chips fanned around a bowl of buttercream dip that they dip into one by one, with the quote form set inside the dip. Every chip, cookie, pack, and cookie cake is drawn top-down at true relative scale, lit from the upper left, and on the cookie cake the visitor's own words are piped in glossy buttercream script. The page is made of the materials of the product itself: strawberry-buttercream pink, baked-dough gold, dark chocolate, and vanilla buttercream, with sprinkle confetti appearing only as sprinkles.\n\nEach section floods a single field color edge to edge and sets its content straight onto that field: headlines, paragraphs, prices, and rules, with no cards between the field and the type. Star-tip rosette borders are piped across the seams where one field meets the next. Headlines are a plump, condensed, extra-bold grotesk set tight and sized fluidly (the frontmatter gives each role's maximum; Typography gives the clamp); anything written by hand (a cake message, a customer's name, the wordmark in the footer) is in a piped script. Choices are all visible at once, and the selected one snaps forward.\n\nThe world covers two pages built from the same parts: the home page and /wholesale share the header, footer, drawing system, and tokens.\n\nThe world was built to replace a cream boutique look with a serif title, centered logo, and a row of product cards; it does not return to that look.",
     "keyCharacteristics": [
       "Flooded single-color section fields: pink, chocolate, dough, vanilla.",
-      "Baked goods drawn as live SVG from directly above, one light source, one scale.",
+      "Chips, dip, packs, cookies, and cakes drawn as live SVG from directly above, one light source, one scale.",
       "Glossy piped script for messages and names; heavy condensed grotesk for everything else.",
       "Rosette borders on section seams instead of dividers or waves.",
       "Product entries separated by chocolate rules, never boxed in cards.",
@@ -386,12 +436,12 @@
       },
       {
         "name": "The Chocolate Ink Rule",
-        "body": "Text and rules on light fields are Dark Chocolate, dimmed with opacity (85%, 70%, 55% for placeholders) rather than a separate gray. On chocolate fields, headlines and prices are Strawberry Field and copy is Vanilla Buttercream.",
+        "body": "Text and rules on light fields are Dark Chocolate, dimmed with opacity (85% and 80% for secondary copy, 75% for placeholders) rather than a separate gray. On chocolate fields, headlines and prices are Strawberry Field and copy is Vanilla Buttercream.",
         "section": "colors"
       },
       {
         "name": "The Piped Hand Rule",
-        "body": "Leckerli One is only for what is piped or signed: cake messages, customer names, the wordmark. It never sets a headline, a paragraph, a button, or a label.",
+        "body": "Leckerli One is only for what is piped, signed, or stickered: cake messages, customer names, the wordmark, a name on a pack. It never sets a headline, a paragraph, a button, or a label.",
         "section": "typography"
       },
       {
@@ -401,7 +451,7 @@
       },
       {
         "name": "The Objects-Lift Rule",
-        "body": "Only physical things (buttons, a box, a framed map, a badge, a dialog) cast a shadow. Text blocks, lists, and sections never do.",
+        "body": "Only physical things (buttons, a framed map, a badge, a drawn chip, bowl, or pack) cast a shadow. Text blocks, lists, and sections never do.",
         "section": "elevation"
       },
       {
@@ -417,7 +467,7 @@
       "Do separate product entries with 3px and 2px chocolate rules, with name and tabular price on one baseline.",
       "Do keep every choice visible at once and snap the selection forward (110% scale, 3px chocolate ring, or a pink fill in a chocolate track).",
       "Do use pill buttons in Dark Chocolate on light fields and Strawberry Field on chocolate fields, rising 2px on hover.",
-      "Do mark section seams with a rosette border."
+      "Do mark section seams with a rosette border, and render the rosette sprite once on every page that draws rosettes."
     ],
     "donts": [
       "Don't return to the cream boutique look: no serif display titles, no centered-logo hero, no row of product cards.",
