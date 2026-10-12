@@ -1,5 +1,13 @@
 const faqs = [
   {
+    q: 'What are Cookie Nachos?',
+    a: "Cookie chips with a cup of buttercream for dipping, packed one per guest. They're made for office parties, conferences, client meetings, closings, and showers. Chip and dip flavors rotate; ask what's baking for your date.",
+  },
+  {
+    q: 'How do event and corporate orders work?',
+    a: "Send your headcount and date (from the top of this page or our wholesale page) and we'll reply with pricing and availability. We can add your branding or a custom note. Once you confirm, we send an invoice; tell us who at your company should receive it.",
+  },
+  {
     q: 'How much notice do you need?',
     a: 'We ask for at least 5 days notice for cookie cakes and 3 days for dozens. Larger or fully custom orders may need a little more lead time — send the request and we\'ll confirm what works.',
   },
@@ -27,41 +35,35 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-28 md:py-36 bg-cream">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Good to Know
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-brown leading-tight">
-            Frequently asked
+    <section id="faq" className="bg-vanilla py-24 md:py-32" aria-labelledby="faq-title">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+        <div>
+          <h2 id="faq-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-choc md:sticky md:top-28">
+            Good to know
           </h2>
-          <p className="mt-6 text-brown/65 max-w-xl mx-auto leading-relaxed">
-            A few of the things people ask before they order. If you don't see
-            yours,{' '}
-            <a href="#order" className="text-mauve underline-offset-4 hover:underline font-medium">
+          <p className="mt-6 max-w-[34ch] text-lg leading-relaxed text-choc">
+            A few of the things people ask before they order. If you don't see yours,{' '}
+            <a href="#order" className="font-bold underline decoration-choc/40 hover:decoration-choc">
               send us a note
             </a>
             .
           </p>
         </div>
 
-        <div className="divide-y divide-brown/10 border-y border-brown/10">
+        <div className="divide-y-2 divide-choc/15 border-y-[3px] border-choc">
           {faqs.map(({ q, a }) => (
-            <details
-              key={q}
-              className="group py-5 md:py-6"
-            >
-              <summary className="flex items-center justify-between gap-6 cursor-pointer list-none font-serif text-lg md:text-xl text-brown font-semibold marker:hidden">
+            <details key={q} className="group py-2">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-xl py-4 text-[1.35rem] font-extrabold leading-tight text-choc marker:hidden [&::-webkit-details-marker]:hidden">
                 <span>{q}</span>
-                <span
+                <svg
+                  viewBox="0 0 24 24"
                   aria-hidden="true"
-                  className="flex-shrink-0 h-7 w-7 rounded-full bg-beige flex items-center justify-center text-brown text-lg leading-none transition-transform duration-300 group-open:rotate-45"
+                  className="h-7 w-7 shrink-0 rounded-full bg-pink p-1.5 text-choc transition-transform duration-300 ease-out group-open:rotate-45"
                 >
-                  +
-                </span>
+                  <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+                </svg>
               </summary>
-              <p className="mt-4 text-brown/70 leading-relaxed">{a}</p>
+              <p className="max-w-[60ch] pb-5 text-lg leading-relaxed text-choc/85">{a}</p>
             </details>
           ))}
         </div>

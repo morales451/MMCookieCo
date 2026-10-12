@@ -26,53 +26,31 @@ const testimonials = [
   },
   {
     name: 'Matt Allen',
-    quote:
-      'Best cookies in Houston, hands down. Already trying to invent reasons to order more.',
+    quote: 'Best cookies in Houston, hands down. Already trying to invent reasons to order more.',
   },
 ];
 
-function QuoteMark() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-7 w-7 text-mauve/70"
-      fill="currentColor"
-    >
-      <path d="M7.17 6A4.17 4.17 0 003 10.17v3.66A2.17 2.17 0 005.17 16H8a1 1 0 001-1v-3a1 1 0 00-1-1H6.5a.5.5 0 01-.5-.5V10A2 2 0 018 8a1 1 0 100-2H7.17zm10 0A4.17 4.17 0 0013 10.17v3.66A2.17 2.17 0 0015.17 16H18a1 1 0 001-1v-3a1 1 0 00-1-1h-1.5a.5.5 0 01-.5-.5V10a2 2 0 012-2 1 1 0 100-2h-.83z" />
-    </svg>
-  );
-}
-
 export default function Testimonials() {
+  const [lead, ...rest] = testimonials;
   return (
-    <section id="reviews" className="py-28 md:py-36 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Kind Words
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-brown leading-tight">
-            What people are saying
-          </h2>
-          <p className="mt-6 text-brown/65 max-w-xl mx-auto leading-relaxed">
-            From friends, neighbors, and the regulars who keep the kitchen busy.
-          </p>
-        </div>
+    <section id="reviews" className="bg-vanilla py-24 md:py-32" aria-labelledby="reviews-title">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 id="reviews-title" className="display max-w-[16ch] text-[clamp(2.6rem,6vw,4.5rem)] text-choc">
+          From friends, neighbors, and the regulars who keep the kitchen busy.
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-8">
-          {testimonials.map(({ name, quote }) => (
-            <figure
-              key={name}
-              className="bg-beige/50 rounded-2xl p-8 shadow-soft flex flex-col"
-            >
-              <QuoteMark />
-              <blockquote className="mt-4 text-brown/80 leading-relaxed flex-1">
-                {quote}
-              </blockquote>
-              <figcaption className="mt-6 pt-5 border-t border-brown/10 font-serif italic text-brown">
-                — {name}
-              </figcaption>
+        <figure className="mt-14 border-t-[3px] border-choc pt-10">
+          <blockquote className="display max-w-[30ch] text-[clamp(1.9rem,3.6vw,3rem)] font-bold leading-[1.08] text-choc">
+            “{lead.quote}”
+          </blockquote>
+          <figcaption className="mt-6 font-script text-[2rem] text-pink-deep">{lead.name}</figcaption>
+        </figure>
+
+        <div className="mt-16 gap-12 md:columns-2 lg:columns-3">
+          {rest.map((t) => (
+            <figure key={t.name} className="mb-12 break-inside-avoid border-t-2 border-choc/20 pt-6">
+              <blockquote className="text-lg leading-relaxed text-choc">“{t.quote}”</blockquote>
+              <figcaption className="mt-4 font-script text-[1.6rem] text-pink-deep">{t.name}</figcaption>
             </figure>
           ))}
         </div>

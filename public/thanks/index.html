@@ -9,24 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Leckerli+One&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --cream: #f7f3ef;
-        --beige: #e8ded6;
-        --tan: #d2b8a3;
-        --mauve: #c9a3a3;
-        --brown: #6b4f3a;
+        --cream: #fff4e6;
+        --beige: #f9b8cb;
+        --tan: #c93a68;
+        --mauve: #f06a93;
+        --brown: #2b1610;
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
       body {
         background:
-          radial-gradient(circle at 50% 25%, var(--cream) 0%, #efe7df 60%, var(--beige) 100%);
+          #f06a93;
         color: var(--brown);
-        font-family: 'Montserrat', system-ui, sans-serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -38,7 +38,7 @@
         width: 100%;
         background: var(--cream);
         border-radius: 1.5rem;
-        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+        box-shadow: 0 6px 24px rgba(43, 22, 16, 0.08);
         padding: 3.5rem 2rem;
         text-align: center;
       }
@@ -49,7 +49,7 @@
         object-fit: cover;
         margin: 0 auto 1.75rem;
         display: block;
-        box-shadow: 0 4px 16px rgba(107, 79, 58, 0.14);
+        box-shadow: 0 4px 16px rgba(43, 22, 16, 0.14);
       }
       .eyebrow {
         text-transform: uppercase;
@@ -60,7 +60,7 @@
         margin: 0 0 0.75rem;
       }
       h1 {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         font-size: clamp(2rem, 5vw, 2.75rem);
         font-weight: 700;
         margin: 0 0 1.25rem;
@@ -68,7 +68,7 @@
       }
       p {
         line-height: 1.75;
-        color: rgba(107, 79, 58, 0.75);
+        color: rgba(43, 22, 16, 0.75);
         margin: 0 0 1rem;
       }
       .accent {
@@ -87,20 +87,21 @@
         letter-spacing: 0.12em;
         font-size: 0.85rem;
         text-transform: uppercase;
-        box-shadow: 0 4px 16px rgba(107, 79, 58, 0.14);
+        box-shadow: 0 4px 16px rgba(43, 22, 16, 0.14);
         transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
       }
       a.button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(107, 79, 58, 0.2);
-        background: var(--mauve);
+        box-shadow: 0 10px 24px rgba(43, 22, 16, 0.2);
+        background: #4a2a1c;
       }
+          h1, h2, h3, .serif { font-weight: 800; font-stretch: 80%; letter-spacing: -0.03em; line-height: 0.98; }
+      ::selection { background: #2b1610; color: #f9b8cb; }
     </style>
   </head>
   <body>
     <main>
       <img src="/unnamed.png" alt="MM Cookie Co. logo" class="logo" />
-      <p class="eyebrow">Order Received</p>
       <h1>Thank you — your request is in.</h1>
       <p>
         We've received your order request and we'll review it shortly. You can
@@ -108,8 +109,9 @@
         coordinate payment, pickup, or local Houston delivery.
       </p>
       <p>
-        In the meantime, follow along on Instagram for fresh batches and
-        behind-the-scenes from the kitchen.
+        In the meantime, follow along on
+        <a href="https://instagram.com/mm_cookie_co" style="color: inherit; font-weight: 700">Instagram</a>
+        for fresh batches and behind-the-scenes from the kitchen.
       </p>
       <a class="button" href="/">Back to MM Cookie Co.</a>
     </main>

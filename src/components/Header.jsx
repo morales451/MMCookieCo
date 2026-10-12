@@ -1,45 +1,65 @@
-const links = [
-  { href: '#menu', label: 'Menu' },
-  { href: '#story', label: 'Our Story' },
-  { href: '#order', label: 'Order' },
+const sections = [
+  { hash: '#top', label: 'Cookie Nachos' },
+  { hash: '#cakes', label: 'Cookie cakes' },
+  { hash: '#menu', label: 'Menu' },
+  { hash: '#faq', label: 'FAQ' },
 ];
 
-export default function Header() {
+// On the wholesale page the section links point back to the home page.
+export default function Header({ page = 'home' }) {
+  const home = page === 'home';
+  const links = sections.map((s) => ({ href: home ? s.hash : `/${s.hash}`, label: s.label }));
   return (
-    <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-brown/5">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-        <a
-          href="#top"
-          className="flex items-center gap-3 text-brown"
-          aria-label="MM Cookie Co — back to top"
-        >
+    <header className="sticky top-0 z-50 bg-pink/95 backdrop-blur-sm">
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <a href={home ? '#top' : '/'} className="flex items-center gap-3 text-choc" aria-label={home ? 'MM Cookie Co., back to top' : 'MM Cookie Co. home'}>
           <img
             src="/unnamed.png"
             alt=""
-            className="h-11 w-11 md:h-12 md:w-12 rounded-full object-cover ring-1 ring-brown/10"
+            width="48"
+            height="48"
+            className="h-12 w-12 rounded-full object-cover shadow-press ring-2 ring-choc"
           />
-          <span className="font-serif font-bold text-lg md:text-xl tracking-tight hidden sm:inline">
-            MM Cookie Co.
-          </span>
+          <span className="display hidden text-[1.6rem] sm:inline">MM Cookie Co.</span>
         </a>
-        <nav className="flex items-center gap-5 sm:gap-8 text-xs sm:text-sm font-medium uppercase tracking-widest">
-          {links.map((link) => (
+        <nav aria-label="Main" className="flex items-center gap-1 sm:gap-2">
+          <ul className="hidden items-center gap-1 lg:flex">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="rounded-full px-3.5 py-2 font-bold text-choc transition-colors hover:bg-choc hover:text-pink-soft"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          {home && (
             <a
-              key={link.href}
-              href={link.href}
-              className="text-brown/70 hover:text-mauve transition-colors"
+              href="/wholesale/"
+              className="rounded-full border-2 border-choc px-4 py-2 text-[0.95rem] font-bold text-choc transition-colors hover:bg-choc hover:text-pink-soft"
             >
-              {link.label}
+              <span className="hidden sm:inline">Wholesale &amp; </span>Corporate
             </a>
-          ))}
-          <a
-            href="/wholesale/"
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full border border-mauve/60 bg-mauve/10 text-brown hover:bg-mauve hover:text-cream hover:border-mauve transition-colors text-[10px] sm:text-xs"
-          >
-            <span className="hidden sm:inline">Wholesale &amp;</span> Corporate
+          )}
+          <a href={home ? '#order' : '#inquiry'} className="btn-choc px-5 py-2.5 text-[0.95rem]">
+            {home ? 'Order' : 'Get a quote'}
           </a>
         </nav>
       </div>
+      {/* Small screens keep the section links as a scrolling row instead of hiding them. */}
+      <nav aria-label="Sections" className="lg:hidden">
+        <ul className="flex gap-1 overflow-x-auto px-3 pb-2 [scrollbar-width:none]">
+          {links.map((link) => (
+            <li key={link.href} className="shrink-0">
+              <a href={link.href} className="block rounded-full bg-pink-soft/50 px-3.5 py-1.5 text-sm font-bold text-choc hover:bg-choc hover:text-pink-soft">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }

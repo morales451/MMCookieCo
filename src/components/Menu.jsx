@@ -1,79 +1,73 @@
-import CookieCard from './CookieCard.jsx';
-
-const SQUARE = '?w=700&h=700&q=80&auto=format&fit=crop';
-
-const cookies = [
-  {
-    name: 'Custom Cookie Cakes',
-    image: `https://plus.unsplash.com/premium_photo-1670895801135-858a7d167ea4${SQUARE}`,
-    alt: 'A celebratory stack of cookies on a white plate',
-    description:
-      'Choose your flavor. Add your message. The perfect centerpiece for birthdays, showers, and quiet weeknight wins.',
-    price: 'From $35',
-  },
-  {
-    name: 'Classic Chocolate Chip',
-    image: `https://plus.unsplash.com/premium_photo-1668772704254-c4c4798b0e5d${SQUARE}`,
-    alt: 'Stack of golden chocolate chip cookies',
-    description:
-      'Brown-buttered dough, pools of semi-sweet chocolate, finished with flaky sea salt. Crisp edges. Soft center.',
-    price: '$4.00 / each',
-  },
-  {
-    name: 'Funfetti Sugar',
-    image: `https://images.unsplash.com/photo-1619149651177-b09092806f1a${SQUARE}`,
-    alt: 'Sweet treat with creamy white frosting on top',
-    description:
-      'A buttery sugar cookie loaded with rainbow sprinkles and vanilla bean. Pure birthday-on-a-plate joy.',
-    price: '$4.00 / each',
-  },
-  {
-    name: 'Double Chocolate',
-    image: `https://images.unsplash.com/photo-1598839950984-034f6dc7b495${SQUARE}`,
-    alt: 'Rich brown cookies arranged on a white surface',
-    description:
-      'Cocoa dough hugging a generous mix of dark and milk chocolate chunks. For the chocolate lover.',
-    price: '$4.50 / each',
-  },
-  {
-    name: 'Snickerdoodle',
-    image: `https://images.unsplash.com/photo-1597733153203-a54d0fbc47de${SQUARE}`,
-    alt: 'Round cinnamon-sugar cookie on a light surface',
-    description:
-      'Pillowy cream of tartar dough rolled in cinnamon sugar. Tangy, warm, beautifully nostalgic.',
-    price: '$4.00 / each',
-  },
-  {
-    name: 'Red Velvet',
-    image: `https://images.unsplash.com/photo-1558961363-fa8fdf82db35${SQUARE}`,
-    alt: 'Plush, cocoa-kissed cookies served in a small bowl',
-    description:
-      'Cocoa-kissed crimson dough studded with white chocolate chips. Soft, plush, quietly dramatic.',
-    price: '$4.50 / each',
-  },
-];
+import { Cookie } from './bake/bake.jsx';
+import CookieCake from './bake/CookieCake.jsx';
+import { COOKIES } from '../data.js';
 
 export default function Menu() {
   return (
-    <section id="menu" className="py-28 md:py-36 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            The Menu
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-6xl font-bold text-brown leading-tight">
-            Our Signature Cookies
+    <section id="menu" className="on-choc bg-choc pb-28 pt-24 text-vanilla md:pb-36 md:pt-32" aria-labelledby="menu-title">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-x-16 gap-y-6 md:grid-cols-[1fr_1.1fr] md:items-end">
+          <h2 id="menu-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-pink">
+            Our signature cookies
           </h2>
-          <p className="mt-6 text-brown/65 max-w-xl mx-auto leading-relaxed">
-            Small-batch favorites, baked fresh in Houston and made to be shared
-            (or not — we won't tell).
+          <p className="max-w-[44ch] text-lg leading-relaxed text-vanilla/85 md:pb-2">
+            Small-batch favorites, baked fresh in Houston and made to be shared (or not, we won't tell). Cookies come by
+            the dozen per flavor.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {cookies.map((cookie) => (
-            <CookieCard key={cookie.name} {...cookie} />
-          ))}
+        <div className="mt-16 grid gap-x-16 gap-y-14 md:mt-20 md:grid-cols-[0.9fr_1.1fr]">
+          <a
+            href="#cake-guide"
+            className="group block self-start rounded-[2.5rem] text-vanilla md:sticky md:top-28"
+            aria-labelledby="menu-cake-name"
+          >
+            <CookieCake
+              frosting="vanilla"
+              rosettes={30}
+              sprinkles={3}
+              seed={4}
+              clearCenter={0.2}
+              chipDensity={1}
+              className="mx-auto w-full max-w-[26rem] transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
+            />
+            <div className="mt-6 flex items-baseline justify-between gap-6 border-t-2 border-vanilla/20 pt-5">
+              <h3 id="menu-cake-name" className="display text-[2.2rem] text-vanilla">
+                Custom cookie cakes
+              </h3>
+              <p className="shrink-0 text-xl font-bold tabular text-pink">From $35</p>
+            </div>
+            <p className="mt-3 max-w-[46ch] leading-relaxed text-vanilla/80">
+              Choose your flavor. Add your message. The perfect centerpiece for birthdays, showers, and quiet weeknight
+              wins.
+            </p>
+            <span className="mt-4 inline-flex items-center gap-2 font-bold text-pink underline decoration-pink/40 group-hover:decoration-pink">
+              See the three sizes
+            </span>
+          </a>
+
+          <ul className="divide-y-2 divide-vanilla/15 border-y-2 border-vanilla/15">
+            {COOKIES.map((c) => (
+              <li key={c.name} className="group grid grid-cols-[5.5rem_1fr] items-center gap-x-5 py-6 sm:grid-cols-[7rem_1fr_auto] sm:gap-x-7">
+                <Cookie
+                  flavor={c.flavor}
+                  seed={c.seed}
+                  className="w-full transition-transform duration-500 ease-out group-hover:-rotate-12 group-hover:scale-105"
+                />
+                <div>
+                  <h3 className="display text-[1.75rem] text-vanilla">{c.name}</h3>
+                  <p className="mt-2 max-w-[48ch] text-[0.98rem] leading-relaxed text-vanilla/75">{c.description}</p>
+                  <p className="mt-2 font-bold tabular text-pink sm:hidden">
+                    {c.price} <span className="font-medium text-vanilla/70">each</span>
+                  </p>
+                </div>
+                <p className="hidden text-right font-bold tabular text-pink sm:block">
+                  <span className="text-xl">{c.price}</span>
+                  <span className="block text-sm font-medium text-vanilla/70">each</span>
+                </p>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
