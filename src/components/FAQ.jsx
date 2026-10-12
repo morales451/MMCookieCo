@@ -1,5 +1,13 @@
 const faqs = [
   {
+    q: 'What are Cookie Nachos?',
+    a: "Cookie chips with a cup of buttercream for dipping, packed one per guest. They're made for office parties, conferences, client meetings, closings, and showers. Chip and dip flavors rotate; ask what's baking for your date.",
+  },
+  {
+    q: 'How do event and corporate orders work?',
+    a: "Send your headcount and date (from the top of this page or our wholesale page) and we'll reply with pricing and availability. We can add your branding or a custom note. Once you confirm, we send an invoice; tell us who at your company should receive it.",
+  },
+  {
     q: 'How much notice do you need?',
     a: 'We ask for at least 5 days notice for cookie cakes and 3 days for dozens. Larger or fully custom orders may need a little more lead time — send the request and we\'ll confirm what works.',
   },

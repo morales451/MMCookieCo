@@ -29,7 +29,7 @@ export default function StickyOrderCTA() {
           : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
-      Order now
+      Request an order
     </a>
   );
 }

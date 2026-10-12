@@ -76,13 +76,19 @@ export default function CakeBuilder() {
           aria-label="Build your cookie cake"
         >
           <label className="col-span-2 block">
-            <span className="label text-choc">Your message</span>
+            <span className="flex items-baseline justify-between">
+              <span className="label text-choc">Your message</span>
+              <span id="message-count" className={`text-sm font-bold tabular ${message.length >= 40 ? 'text-choc' : 'text-choc/80'}`}>
+                {message.length}/40{message.length >= 40 ? ', the most that fits' : ''}
+              </span>
+            </span>
             <input
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               maxLength={40}
               placeholder="Type it and watch it pipe"
-              className="mt-1 block w-full border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1 text-[clamp(1.4rem,3vw,2rem)] font-bold text-choc placeholder:font-semibold placeholder:text-choc/75 focus:border-pink-deep focus:outline-none focus:ring-0 focus-visible:outline-none"
+              className="mt-1 block w-full border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1 text-[clamp(1.4rem,3vw,2rem)] font-bold text-choc placeholder:font-semibold placeholder:text-choc/75 focus:border-pink-deep focus:shadow-[0_3px_0_0_#C93A68] focus:outline-none focus:ring-0 focus-visible:outline-none"
+              aria-describedby="message-count"
             />
           </label>
 

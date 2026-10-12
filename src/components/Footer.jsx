@@ -1,9 +1,10 @@
 const visit = [
-  { href: '#menu', label: 'Menu' },
-  { href: '#cake-guide', label: 'Cookie cake sizes' },
-  { href: '#club', label: 'Cookie Club' },
-  { href: '/wholesale/', label: 'Wholesale & corporate' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '/#top', label: 'Cookie Nachos' },
+  { href: '/#menu', label: 'Menu' },
+  { href: '/#cake-guide', label: 'Cookie cake sizes' },
+  { href: '/#club', label: 'Cookie Club' },
+  { href: '/wholesale/', label: 'Wholesale & corporate events' },
+  { href: '/#faq', label: 'FAQ' },
 ];
 
 export default function Footer() {
@@ -13,7 +14,7 @@ export default function Footer() {
         <div>
           <p className="whitespace-nowrap font-script text-[2.6rem] leading-none text-pink sm:text-[3.2rem]">MM Cookie Co.</p>
           <p className="mt-4 max-w-[30ch] text-lg leading-relaxed text-vanilla/80">
-            Cookie cakes and custom treats, baked fresh in Houston, TX.
+            Cookie Nachos, cookie cakes, and custom treats, baked fresh in Houston, TX.
           </p>
         </div>
         <nav aria-label="Footer">
@@ -37,7 +38,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#order" className="text-vanilla/85 hover:text-pink hover:underline">
+              <a href="/#order" className="text-vanilla/85 hover:text-pink hover:underline">
                 Send an order request
               </a>
             </li>
@@ -46,7 +47,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t-2 border-vanilla/15 px-4 py-6 text-sm text-vanilla/65 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p>© 2026 MM Cookie Co. All rights reserved.</p>
-        <a href="#top" className="font-semibold hover:text-pink hover:underline">
+        <a href="#main" className="font-semibold hover:text-pink hover:underline">
           Back to the top
         </a>
       </div>

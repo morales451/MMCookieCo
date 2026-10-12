@@ -24,7 +24,7 @@
       html, body { margin: 0; padding: 0; }
       body {
         background:
-          radial-gradient(circle at 50% 25%, var(--cream) 0%, #fde3ea 60%, var(--beige) 100%);
+          #f06a93;
         color: var(--brown);
         font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         min-height: 100vh;
@@ -93,7 +93,7 @@
       a.button:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 24px rgba(43, 22, 16, 0.2);
-        background: var(--mauve);
+        background: #4a2a1c;
       }
           h1, h2, h3, .serif { font-weight: 800; font-stretch: 80%; letter-spacing: -0.03em; line-height: 0.98; }
       ::selection { background: #2b1610; color: #f9b8cb; }
@@ -102,7 +102,6 @@
   <body>
     <main>
       <img src="/unnamed.png" alt="MM Cookie Co. logo" class="logo" />
-      <p class="eyebrow">Order Received</p>
       <h1>Thank you — your request is in.</h1>
       <p>
         We've received your order request and we'll review it shortly. You can
@@ -110,8 +109,9 @@
         coordinate payment, pickup, or local Houston delivery.
       </p>
       <p>
-        In the meantime, follow along on Instagram for fresh batches and
-        behind-the-scenes from the kitchen.
+        In the meantime, follow along on
+        <a href="https://instagram.com/mm_cookie_co" style="color: inherit; font-weight: 700">Instagram</a>
+        for fresh batches and behind-the-scenes from the kitchen.
       </p>
       <a class="button" href="/">Back to MM Cookie Co.</a>
     </main>

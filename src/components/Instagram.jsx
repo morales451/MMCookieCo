@@ -53,6 +53,8 @@ function Tray() {
 }
 
 export default function Instagram() {
+  // Until the Behold feed ID is set there are no real posts to show; the footer links to the profile instead.
+  if (!BEHOLD_FEED_ID) return null;
   return (
     <section className="bg-dough py-24 md:py-28" aria-labelledby="ig-title">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

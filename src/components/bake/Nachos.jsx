@@ -95,7 +95,7 @@ export function BowlDefs({ uid }) {
 }
 
 // One individually packed serving: a clear clamshell holding chips and a cup of dip.
-export function NachoPack({ className = '', simple = false, seed = 2 }) {
+export function NachoPack({ className = '', simple = false, seed = 2, sticker = '' }) {
   const uid = useId().replace(/:/g, '');
   const chips = [
     { x: 70, y: 150, rot: -62 },
@@ -127,11 +127,26 @@ export function NachoPack({ className = '', simple = false, seed = 2 }) {
       </g>
       <rect x="18" y="18" width="404" height="282" rx="44" fill={`url(#glare${uid})`} stroke="#fff" strokeOpacity="0.75" strokeWidth="5" />
       <path d="M60 48 Q200 30 380 52" fill="none" stroke="#fff" strokeOpacity="0.6" strokeWidth="7" strokeLinecap="round" />
-      {!simple && (
+      {!simple && !sticker && (
         <g transform="translate(76 262) rotate(-8)">
           <circle r="36" fill="#F06A93" stroke="#2B1610" strokeWidth="4" />
           <text textAnchor="middle" y="-4" fontFamily="'Leckerli One', cursive" fontSize="17" fill="#2B1610">MM</text>
           <text textAnchor="middle" y="14" fontFamily="'Leckerli One', cursive" fontSize="11" fill="#2B1610">Cookie Co.</text>
+        </g>
+      )}
+      {!simple && sticker && (
+        // A client's name on the lid: the sticker widens to fit, the type shrinks past that.
+        <g transform="translate(220 258) rotate(-3)">
+          <rect x={-Math.min(170, 30 + sticker.length * 9)} y="-30" width={Math.min(340, 60 + sticker.length * 18)} height="60" rx="30" fill="#F06A93" stroke="#2B1610" strokeWidth="4" />
+          <text
+            textAnchor="middle"
+            y="9"
+            fontFamily="'Leckerli One', cursive"
+            fontSize={Math.max(14, Math.min(28, 520 / Math.max(sticker.length, 1)))}
+            fill="#2B1610"
+          >
+            {sticker}
+          </text>
         </g>
       )}
     </svg>

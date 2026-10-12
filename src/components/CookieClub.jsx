@@ -7,7 +7,7 @@ const tiers = [
     count: 4,
     serving: '4 cookies a month',
     price: '$15',
-    perks: ['One flavor of your choice', 'Hand-packed each week', 'Cancel anytime'],
+    perks: ['One flavor of your choice', 'Hand-packed each month', 'Cancel anytime'],
   },
   {
     label: 'Duo',
@@ -47,11 +47,11 @@ export default function CookieClub() {
   return (
     <section id="club" className="bg-pink py-24 md:py-32" aria-labelledby="club-title">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
+        <div className="max-w-3xl">
           <h2 id="club-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-choc">
             The Cookie Club, launching soon.
           </h2>
-          <p className="max-w-[44ch] text-lg leading-relaxed text-choc md:pb-2">
+          <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-choc">
             Fresh cookies, every month: a small subscription for the people who can't stop ordering anyway. Pick your size, pick your
             flavors, and we handle the rest.
           </p>
@@ -100,7 +100,7 @@ export default function CookieClub() {
             <div role="status">
               <h3 className="display text-[2rem] text-choc">You're on the list.</h3>
               <p className="mt-2 text-lg leading-relaxed text-choc">
-                We'll email you the moment the Cookie Club opens up, usually with a small founder's discount baked in.
+                We'll email you the moment the Cookie Club opens up.
               </p>
             </div>
           ) : (

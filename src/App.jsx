@@ -10,11 +10,9 @@ import OurStory from './components/OurStory.jsx';
 import Instagram from './components/Instagram.jsx';
 import PickupMap from './components/PickupMap.jsx';
 import FAQ from './components/FAQ.jsx';
-import Referral from './components/Referral.jsx';
 import OrderForm from './components/OrderForm.jsx';
 import Footer from './components/Footer.jsx';
 import StickyOrderCTA from './components/StickyOrderCTA.jsx';
-import ExitIntent from './components/ExitIntent.jsx';
 import RosetteBorder from './components/bake/RosetteBorder.jsx';
 import { RosetteSprite } from './components/bake/bake.jsx';
 
@@ -37,18 +35,16 @@ export default function App() {
         <CookieCakeGuide />
         <RosetteBorder frosting="vanilla" />
         <Testimonials />
-        <CookieClub />
         <OurStory />
-        <Instagram />
         <PickupMap />
         <FAQ />
-        <Referral />
         <RosetteBorder frosting="vanilla" />
         <OrderForm />
+        <CookieClub />
+        <Instagram />
       </main>
       <Footer />
       <StickyOrderCTA />
-      <ExitIntent />
     </div>
   );
 }

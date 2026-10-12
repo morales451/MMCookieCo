@@ -1,15 +1,18 @@
-const links = [
-  { href: '#top', label: 'Cookie Nachos' },
-  { href: '#cakes', label: 'Cookie cakes' },
-  { href: '#menu', label: 'Menu' },
-  { href: '#faq', label: 'FAQ' },
+const sections = [
+  { hash: '#top', label: 'Cookie Nachos' },
+  { hash: '#cakes', label: 'Cookie cakes' },
+  { hash: '#menu', label: 'Menu' },
+  { hash: '#faq', label: 'FAQ' },
 ];
 
-export default function Header() {
+// On the wholesale page the section links point back to the home page.
+export default function Header({ page = 'home' }) {
+  const home = page === 'home';
+  const links = sections.map((s) => ({ href: home ? s.hash : `/${s.hash}`, label: s.label }));
   return (
     <header className="sticky top-0 z-50 bg-pink/95 backdrop-blur-sm">
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-3 text-choc" aria-label="MM Cookie Co., back to top">
+        <a href={home ? '#top' : '/'} className="flex items-center gap-3 text-choc" aria-label={home ? 'MM Cookie Co., back to top' : 'MM Cookie Co. home'}>
           <img
             src="/unnamed.png"
             alt=""
@@ -32,14 +35,16 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <a
-            href="/wholesale/"
-            className="rounded-full border-2 border-choc px-4 py-2 text-[0.95rem] font-bold text-choc transition-colors hover:bg-choc hover:text-pink-soft"
-          >
-            <span className="hidden sm:inline">Wholesale &amp; </span>Corporate
-          </a>
-          <a href="#order" className="btn-choc px-5 py-2.5 text-[0.95rem]">
-            Order
+          {home && (
+            <a
+              href="/wholesale/"
+              className="rounded-full border-2 border-choc px-4 py-2 text-[0.95rem] font-bold text-choc transition-colors hover:bg-choc hover:text-pink-soft"
+            >
+              <span className="hidden sm:inline">Wholesale &amp; </span>Corporate
+            </a>
+          )}
+          <a href={home ? '#order' : '#inquiry'} className="btn-choc px-5 py-2.5 text-[0.95rem]">
+            {home ? 'Order' : 'Get a quote'}
           </a>
         </nav>
       </div>

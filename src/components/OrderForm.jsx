@@ -45,6 +45,14 @@ export default function OrderForm() {
             For Cookie Nachos, give us your headcount and date and we'll quote it. Cookie cakes need at least 5 days'
             notice, dozens at least 3. We invoice once your order is confirmed.
           </p>
+          <div className="mt-10 border-t-[3px] border-choc pt-6">
+            <h3 className="display text-[2rem] text-choc">Share the cookies. Save $5.</h3>
+            <p className="mt-3 max-w-[40ch] leading-relaxed text-choc">
+              Most of our orders come from word of mouth. If a friend sent you, put their name in "Referred by": you get $5
+              off your first order and they get $5 off their next one, as many times as you like. Applied on the invoice,
+              no codes.
+            </p>
+          </div>
         </div>
         <form
           name="order-request"

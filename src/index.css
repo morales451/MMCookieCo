@@ -80,7 +80,7 @@
 
   /* The hero composer's grammar: set straight on the field, underlined in chocolate. */
   .field {
-    @apply mt-1 block w-full rounded-none border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1.5 text-lg font-semibold text-choc placeholder:font-medium placeholder:text-choc/75 outline-none transition-colors focus:border-pink-deep;
+    @apply mt-1 block w-full rounded-none border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1.5 text-lg font-semibold text-choc placeholder:font-medium placeholder:text-choc/75 outline-none transition-[border-color,box-shadow] focus:border-pink-deep focus:shadow-[0_3px_0_0_#C93A68];
     color-scheme: light;
     accent-color: #2b1610;
   }
