@@ -28,6 +28,7 @@ export default function App() {
         <RosetteBorder frosting="strawberry" />
         <Menu />
         <CookieCakeGuide />
+        <RosetteBorder frosting="vanilla" />
         <Testimonials />
         <Wholesale />
         <CookieClub />
@@ -36,6 +37,7 @@ export default function App() {
         <PickupMap />
         <FAQ />
         <Referral />
+        <RosetteBorder frosting="vanilla" />
         <OrderForm />
       </main>
       <Footer />

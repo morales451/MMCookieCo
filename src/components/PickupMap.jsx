@@ -33,6 +33,17 @@ export default function PickupMap() {
           </a>
         </div>
         <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-vanilla shadow-lift ring-[6px] ring-choc md:aspect-[4/5] lg:aspect-square">
+          {/* Drawn fallback: shows if the embed is blocked or still loading. */}
+          <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full" aria-hidden="true">
+            <rect width="400" height="400" fill="#FFF4E6" />
+            <g stroke="#2B1610" strokeOpacity="0.22" strokeWidth="9" strokeLinecap="round" fill="none">
+              <path d="M-10 120 H410 M-10 260 H410 M90 -10 V410 M300 -10 V410" />
+              <path d="M-10 330 Q160 300 410 340" strokeWidth="14" strokeOpacity="0.3" />
+            </g>
+            <path d="M150 150 Q210 130 255 165 Q275 215 230 240 Q170 250 145 210 Q130 175 150 150Z" fill="#5CCB8F" opacity="0.55" />
+            <text x="200" y="285" textAnchor="middle" fontFamily="'Leckerli One', cursive" fontSize="22" fill="#2B1610">Montie Beach Park</text>
+            <circle cx="200" cy="190" r="16" fill="#F06A93" stroke="#2B1610" strokeWidth="4" />
+          </svg>
           <iframe
             title="MM Cookie Co. pickup area, Houston Heights"
             src={EMBED_SRC}

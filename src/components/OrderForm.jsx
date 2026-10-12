@@ -40,7 +40,7 @@ export default function OrderForm() {
           action="/thanks/"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          className="space-y-6 rounded-[2rem] bg-vanilla p-6 shadow-lift sm:p-10"
+          className="space-y-7"
         >
           <input type="hidden" name="form-name" value="order-request" />
           <p hidden>
@@ -49,7 +49,7 @@ export default function OrderForm() {
             </label>
           </p>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-x-10">
             <div>
               <label htmlFor="full-name" className={labelClasses}>
                 Full name <span className="text-pink-deep" aria-hidden="true">*</span>

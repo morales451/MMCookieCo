@@ -48,14 +48,11 @@ export default function CookieClub() {
     <section id="club" className="bg-pink py-24 md:py-32" aria-labelledby="club-title">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
-          <div>
-            <p className="font-script text-[2rem] leading-none text-choc">Launching soon</p>
-            <h2 id="club-title" className="display mt-3 text-[clamp(3rem,7vw,5.5rem)] text-choc">
-              The Cookie Club: fresh cookies, every month.
-            </h2>
-          </div>
+          <h2 id="club-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-choc">
+            The Cookie Club, launching soon.
+          </h2>
           <p className="max-w-[44ch] text-lg leading-relaxed text-choc md:pb-2">
-            A small monthly subscription for the people who can't stop ordering anyway. Pick your size, pick your
+            Fresh cookies, every month: a small subscription for the people who can't stop ordering anyway. Pick your size, pick your
             flavors, and we handle the rest.
           </p>
         </div>
@@ -125,7 +122,7 @@ export default function CookieClub() {
                   required
                   placeholder="you@email.com"
                   autoComplete="email"
-                  className="field mt-0 flex-1 rounded-full border-choc/25 px-5"
+                  className="field mt-0 flex-1"
                 />
                 <button type="submit" className="btn-choc whitespace-nowrap" disabled={status === 'sending'}>
                   {status === 'sending' ? 'Joining…' : 'Join the waitlist'}

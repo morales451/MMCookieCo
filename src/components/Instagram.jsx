@@ -35,20 +35,18 @@ function BeholdWidget({ feedId }) {
   return <behold-widget feed-id={feedId} class="block" />;
 }
 
-function PlaceholderGrid() {
+// Until the live feed is connected, show a drawn tray rather than fake posts.
+function Tray() {
   return (
-    <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-6">
+    <div className="relative mx-auto h-48 w-full max-w-md sm:h-56" aria-hidden="true">
       {TILES.map((flavor, i) => (
-        <a
+        <Cookie
           key={i}
-          href={PROFILE_URL}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`See fresh bakes on Instagram, @${HANDLE}`}
-          className="group grid aspect-square place-items-center rounded-2xl bg-dough-light p-4 transition-colors hover:bg-vanilla"
-        >
-          <Cookie flavor={flavor} seed={i * 11 + 4} className="w-full transition-transform duration-500 ease-out group-hover:rotate-45" />
-        </a>
+          flavor={flavor}
+          seed={i * 11 + 4}
+          className="absolute w-[34%]"
+          style={{ left: `${[0, 22, 44, 66, 11, 55][i]}%`, top: `${[0, 8, 2, 10, 46, 44][i]}%`, transform: `rotate(${i * 53}deg)` }}
+        />
       ))}
     </div>
   );
@@ -58,7 +56,7 @@ export default function Instagram() {
   return (
     <section className="bg-dough py-24 md:py-28" aria-labelledby="ig-title">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className={`flex flex-col gap-10 md:flex-row md:items-center md:justify-between ${BEHOLD_FEED_ID ? 'mb-12' : ''}`}>
           <div>
             <h2 id="ig-title" className="display text-[clamp(2.6rem,6vw,4.5rem)] text-choc">
               Fresh out of the oven
@@ -66,14 +64,15 @@ export default function Instagram() {
             <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-choc">
               Fresh batches, behind-the-scenes, and the occasional warm-cookie giveaway.
             </p>
+            <a href={PROFILE_URL} target="_blank" rel="noreferrer" className="btn-choc mt-8">
+              <InstagramIcon />
+              Follow @{HANDLE}
+            </a>
           </div>
-          <a href={PROFILE_URL} target="_blank" rel="noreferrer" className="btn-choc self-start md:self-auto">
-            <InstagramIcon />
-            Follow @{HANDLE}
-          </a>
+          {!BEHOLD_FEED_ID && <Tray />}
         </div>
 
-        {BEHOLD_FEED_ID ? <BeholdWidget feedId={BEHOLD_FEED_ID} /> : <PlaceholderGrid />}
+        {BEHOLD_FEED_ID && <BeholdWidget feedId={BEHOLD_FEED_ID} />}
       </div>
     </section>
   );

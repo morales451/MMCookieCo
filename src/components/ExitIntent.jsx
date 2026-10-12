@@ -109,7 +109,7 @@ export default function ExitIntent() {
                 placeholder="you@email.com"
                 autoComplete="email"
                 aria-label="Email address"
-                className="field mt-0"
+                className="field"
               />
               <button
                 type="submit"

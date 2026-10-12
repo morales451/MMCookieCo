@@ -132,34 +132,32 @@ export const FROSTINGS = {
   sky: { name: 'Sky blue', fill: '#8CC4FA', ridge: '#4F8FD8', ink: '#2F6FC4' },
 };
 
-// One star-tip rosette, as the logo's cake wears them: ridged petals
-// swirling out from a peak, each catching the light on its own.
+// One star-tip rosette, as the logo's cake wears them: tapered ridges that
+// spiral up to a peak, shaded by the gloss filter rather than outlines.
+function ridgePath(r) {
+  return `M0,0 Q${r * 0.42},${-r * 0.36} ${r * 0.9},${-r * 0.16} Q${r * 1.06},${-r * 0.02} ${r * 0.92},${r * 0.14} Q${r * 0.5},${r * 0.16} 0,0Z`;
+}
+
+function crestPath(r) {
+  return `M${r * 0.12},${-r * 0.03} Q${r * 0.48},${-r * 0.2} ${r * 0.86},${-r * 0.06}`;
+}
+
 export function Rosette({ x, y, r, frosting, rotate = 0, sprinkles = 0, seed = 1 }) {
   const f = FROSTINGS[frosting] || FROSTINGS.strawberry;
   const rand = rng(seed);
-  const petals = (count, dist, len, wid, twist, color) =>
-    Array.from({ length: count }).map((_, i) => {
-      const a = (i / count) * 360 + twist;
-      return (
-        <ellipse
-          key={`${count}-${i}`}
-          cx={dist}
-          cy="0"
-          rx={len}
-          ry={wid}
-          fill={color}
-          stroke={f.ridge}
-          strokeWidth={r * 0.035}
-          transform={`rotate(${a}) rotate(${-24} ${dist} 0)`}
-        />
-      );
-    });
+  const ridges = (count, len, twist) =>
+    Array.from({ length: count }).map((_, i) => (
+      <g key={`${count}-${i}`} transform={`rotate(${(i / count) * 360 + twist})`}>
+        <path d={ridgePath(len)} fill={f.fill} />
+        <path d={crestPath(len)} fill="none" stroke="#fff" strokeOpacity="0.45" strokeWidth={len * 0.07} strokeLinecap="round" />
+      </g>
+    ));
   return (
     <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
-      <circle r={r * 0.92} fill={f.ridge} />
-      {petals(11, r * 0.55, r * 0.42, r * 0.2, 0, f.fill)}
-      {petals(8, r * 0.3, r * 0.3, r * 0.15, 20, f.fill)}
-      <circle r={r * 0.16} fill={f.fill} stroke={f.ridge} strokeWidth={r * 0.035} />
+      <circle r={r * 0.9} fill={f.ridge} />
+      {ridges(8, r, 0)}
+      {ridges(6, r * 0.62, 28)}
+      {ridges(4, r * 0.32, 64)}
       {Array.from({ length: sprinkles }).map((_, i) => {
         const t = rand() * Math.PI * 2;
         const d = r * (0.2 + rand() * 0.5);
@@ -188,17 +186,25 @@ function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 
   const area = (rMax * rMax - rMin * rMin) / (78 * 78);
   if (f.bits === 'chips' || f.bits === 'chunks' || f.bits === 'whiteChips') {
     const n = Math.round((f.bits === 'chunks' ? 16 : 14) * area * density);
-    return scatter(rand, n, rMin, rMax, cx, cy).map(([x, y], i) => {
-      const size = (f.bits === 'chunks' ? 7.5 : 6) * unit * (0.7 + rand() * 0.6);
-      const color = f.chip2 && i % 3 === 0 ? f.chip2 : f.chip;
-      return (
-        <g key={i}>
-          <path d={chunkPath(x + 1.2 * unit, y + 1.6 * unit, size, rand)} fill="#000" opacity="0.18" />
-          <path d={chunkPath(x, y, size, rand)} fill={color} />
-          <ellipse cx={x - size * 0.3} cy={y - size * 0.32} rx={size * 0.3} ry={size * 0.16} fill="#fff" opacity={f.bits === 'whiteChips' ? 0.6 : 0.16} />
-        </g>
-      );
+    const chips = scatter(rand, n, rMin, rMax, cx, cy).map(([x, y], i) => {
+      const size = (f.bits === 'chunks' ? 7 : 5.5) * unit * (0.7 + rand() * 0.6);
+      return { x, y, size, color: f.chip2 && i % 3 === 0 ? f.chip2 : f.chip, shape: blobPath(x, y, size, rand, 0.16, 12) };
     });
+    return (
+      <>
+        <g opacity="0.3" style={{ filter: `blur(${1.4 * unit}px)` }}>
+          {chips.map((c, i) => (
+            <path key={i} d={c.shape} fill="#2B1610" transform={`translate(${0.8 * unit} ${1.1 * unit})`} />
+          ))}
+        </g>
+        {chips.map((c, i) => (
+          <g key={i}>
+            <path d={c.shape} fill={c.color} />
+            <ellipse cx={c.x - c.size * 0.28} cy={c.y - c.size * 0.3} rx={c.size * 0.32} ry={c.size * 0.18} fill="#fff" opacity={f.bits === 'whiteChips' ? 0.55 : 0.18} />
+          </g>
+        ))}
+      </>
+    );
   }
   if (f.bits === 'sprinkles') {
     const n = Math.round(70 * area * density);
@@ -225,7 +231,7 @@ function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 
 }
 
 // A single cookie, seen from directly above.
-export function Cookie({ flavor = 'chocolateChip', seed = 1, className = '', title }) {
+export function Cookie({ flavor = 'chocolateChip', seed = 1, className = '', style, title }) {
   const uid = useId().replace(/:/g, '');
   const f = FLAVORS[flavor];
   const shape = useMemo(() => blobPath(100, 100, 86, rng(seed), 0.03), [seed]);
@@ -240,7 +246,7 @@ export function Cookie({ flavor = 'chocolateChip', seed = 1, className = '', tit
     [f.salt, seed],
   );
   return (
-    <svg viewBox="0 0 200 200" className={className} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true}>
+    <svg viewBox="0 0 200 200" className={className} style={style} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true}>
       <defs>
         <radialGradient id={`g${uid}`} cx="44%" cy="40%" r="62%">
           <stop offset="0" stopColor={f.dough[0]} />

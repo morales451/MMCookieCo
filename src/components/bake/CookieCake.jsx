@@ -24,7 +24,7 @@ export default function CookieCake({
         cy={500}
         rMin={440 * clearCenter}
         rMax={405}
-        unit={2.5}
+        unit={2.1}
         density={chipDensity * 0.19}
       />
     ),
@@ -71,7 +71,7 @@ export function PipedMessage({ text, frosting = 'strawberry', pipeKey = 0, class
   const uid = useId().replace(/:/g, '');
   const lines = useMemo(() => splitLines(text), [text]);
   const longest = Math.max(...lines.map((l) => l.length), 6);
-  const size = Math.min(lines.length > 1 ? 112 : 150, 1700 / longest);
+  const size = Math.min(lines.length > 1 ? 92 : 150, 1700 / longest);
   const lineH = size * 1.08;
   const height = lineH * lines.length + size * 0.5;
   const ink = {
