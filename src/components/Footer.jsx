@@ -1,95 +1,54 @@
+const visit = [
+  { href: '#menu', label: 'Menu' },
+  { href: '#cake-guide', label: 'Cookie cake sizes' },
+  { href: '#club', label: 'Cookie Club' },
+  { href: '/wholesale/', label: 'Wholesale & corporate' },
+  { href: '#faq', label: 'FAQ' },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-beige text-brown">
-      <div className="max-w-5xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-4 gap-10 text-center md:text-left">
-        <div className="md:col-span-2">
-          <p className="font-serif text-2xl font-bold tracking-tight">
-            MM Cookie Co.
-          </p>
-          <p className="mt-3 text-sm text-brown/60 leading-relaxed">
-            Cookie cakes &amp; custom treats,
-            <br />
-            baked fresh in Houston, TX.
+    <footer className="on-choc bg-choc text-vanilla">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-12 pt-20 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div>
+          <p className="whitespace-nowrap font-script text-[2.6rem] leading-none text-pink sm:text-[3.2rem]">MM Cookie Co.</p>
+          <p className="mt-4 max-w-[30ch] text-lg leading-relaxed text-vanilla/80">
+            Cookie cakes and custom treats, baked fresh in Houston, TX.
           </p>
         </div>
-
-        <div>
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Visit
-          </p>
-          <ul className="mt-3 space-y-2 text-base">
-            <li>
-              <a
-                href="#menu"
-                className="text-brown hover:text-mauve transition-colors"
-              >
-                Menu
-              </a>
-            </li>
-            <li>
-              <a
-                href="#club"
-                className="text-brown hover:text-mauve transition-colors"
-              >
-                Cookie Club
-              </a>
-            </li>
-            <li>
-              <a
-                href="/wholesale/"
-                className="text-brown hover:text-mauve transition-colors"
-              >
-                Wholesale &amp; Corporate
-              </a>
-            </li>
-            <li>
-              <a
-                href="#faq"
-                className="text-brown hover:text-mauve transition-colors"
-              >
-                FAQ
-              </a>
-            </li>
+        <nav aria-label="Footer">
+          <h2 className="font-extrabold text-pink">Visit</h2>
+          <ul className="mt-4 space-y-2">
+            {visit.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="text-vanilla/85 hover:text-pink hover:underline">
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
-        </div>
-
+        </nav>
         <div>
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Connect
-          </p>
-          <ul className="mt-3 space-y-2 text-base">
+          <h2 className="font-extrabold text-pink">Connect</h2>
+          <ul className="mt-4 space-y-2">
             <li>
-              <a
-                href="https://instagram.com/mm_cookie_co"
-                target="_blank"
-                rel="noreferrer"
-                className="text-brown hover:text-mauve transition-colors"
-              >
-                @mm_cookie_co
+              <a href="https://instagram.com/mm_cookie_co" target="_blank" rel="noreferrer" className="text-vanilla/85 hover:text-pink hover:underline">
+                @mm_cookie_co on Instagram
               </a>
             </li>
             <li>
-              <a
-                href="#order"
-                className="text-brown hover:text-mauve transition-colors"
-              >
+              <a href="#order" className="text-vanilla/85 hover:text-pink hover:underline">
                 Send an order request
               </a>
             </li>
           </ul>
         </div>
       </div>
-
-      <div className="border-t border-brown/10">
-        <div className="max-w-5xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brown/55">
-          <p>© 2026 MM Cookie Co. All rights reserved.</p>
-          <a
-            href="#top"
-            className="uppercase tracking-widest hover:text-mauve transition-colors"
-          >
-            Back to top ↑
-          </a>
-        </div>
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 border-t-2 border-vanilla/15 px-4 py-6 text-sm text-vanilla/65 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>© 2026 MM Cookie Co. All rights reserved.</p>
+        <a href="#top" className="font-semibold hover:text-pink hover:underline">
+          Back to the top
+        </a>
       </div>
     </footer>
   );

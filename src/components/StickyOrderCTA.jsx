@@ -23,13 +23,13 @@ export default function StickyOrderCTA() {
     <a
       href="#order"
       aria-label="Jump to order request form"
-      className={`fixed z-40 bottom-5 right-5 md:bottom-6 md:right-6 px-6 py-3 rounded-full bg-mauve text-cream font-medium tracking-wider text-xs md:text-sm uppercase shadow-card transition-all duration-300 hover:bg-brown hover:-translate-y-0.5 ${
+      className={`btn-choc fixed bottom-5 right-5 z-40 ring-2 ring-pink transition-[opacity,transform] duration-300 md:bottom-6 md:right-6 ${
         show
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
-      Order Now
+      Order now
     </a>
   );
 }

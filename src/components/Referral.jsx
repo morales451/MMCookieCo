@@ -1,16 +1,13 @@
 const steps = [
   {
-    number: '01',
     title: 'Tell a friend',
-    body: 'Share MM Cookie Co. with someone who hasn\'t ordered yet.',
+    body: "Share MM Cookie Co. with someone who hasn't ordered yet.",
   },
   {
-    number: '02',
     title: 'They drop your name',
     body: 'When they place their first order, they list your name in the "Referred by" field.',
   },
   {
-    number: '03',
     title: 'You both get $5 off',
     body: 'They get $5 off their first order. You get $5 off your next one. As many times as you like.',
   },
@@ -18,43 +15,33 @@ const steps = [
 
 export default function Referral() {
   return (
-    <section id="referral" className="py-24 md:py-28 bg-mauve/15">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Refer a Friend
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-brown leading-tight">
+    <section id="referral" className="on-choc bg-choc py-24 text-vanilla md:py-28" aria-labelledby="referral-title">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-[1.1fr_1fr] md:items-end">
+          <h2 id="referral-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-pink">
             Share the cookies. Save $5.
           </h2>
-          <p className="mt-6 text-brown/70 max-w-xl mx-auto leading-relaxed">
-            Most of our orders come from word of mouth. Here's our small thank
-            you when you spread the word.
+          <p className="max-w-[44ch] text-lg leading-relaxed text-vanilla/85 md:pb-2">
+            Most of our orders come from word of mouth. Here's our small thank you when you spread the word.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="bg-cream rounded-2xl p-8 shadow-soft text-center"
-            >
-              <span className="font-serif text-4xl text-mauve italic">
-                {step.number}
+        <ol className="mt-14 grid gap-10 border-t-2 border-vanilla/20 pt-10 md:grid-cols-3 md:gap-12">
+          {steps.map((step, i) => (
+            <li key={step.title} className="grid grid-cols-[3rem_1fr] gap-4">
+              <span className="font-script text-[3rem] leading-[0.9] text-pink" aria-hidden="true">
+                {i + 1}
               </span>
-              <h3 className="mt-4 font-serif text-xl font-semibold text-brown">
-                {step.title}
-              </h3>
-              <p className="mt-3 text-brown/70 leading-relaxed text-sm">
-                {step.body}
-              </p>
-            </div>
+              <div>
+                <h3 className="display text-[1.8rem] text-vanilla">{step.title}</h3>
+                <p className="mt-2 leading-relaxed text-vanilla/80">{step.body}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <p className="mt-12 text-center text-xs text-brown/55 max-w-md mx-auto">
-          Discounts are applied when we send your invoice. No codes, no
-          tracking links — just tell them to mention you.
+        <p className="mt-12 max-w-[56ch] text-vanilla/75">
+          Discounts are applied when we send your invoice. No codes, no tracking links. Just tell them to mention you.
         </p>
       </div>
     </section>

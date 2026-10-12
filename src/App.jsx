@@ -1,52 +1,40 @@
-import BrandIntro from './components/BrandIntro.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Menu from './components/Menu.jsx';
 import CookieCakeGuide from './components/CookieCakeGuide.jsx';
-import CookieClub from './components/CookieClub.jsx';
 import Testimonials from './components/Testimonials.jsx';
-import CTABanner from './components/CTABanner.jsx';
+import Wholesale from './components/Wholesale.jsx';
+import CookieClub from './components/CookieClub.jsx';
 import OurStory from './components/OurStory.jsx';
 import Instagram from './components/Instagram.jsx';
-import FAQ from './components/FAQ.jsx';
 import PickupMap from './components/PickupMap.jsx';
+import FAQ from './components/FAQ.jsx';
 import Referral from './components/Referral.jsx';
 import OrderForm from './components/OrderForm.jsx';
 import Footer from './components/Footer.jsx';
 import StickyOrderCTA from './components/StickyOrderCTA.jsx';
 import ExitIntent from './components/ExitIntent.jsx';
+import RosetteBorder from './components/bake/RosetteBorder.jsx';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <BrandIntro />
+    <div className="flex min-h-screen flex-col">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-choc focus:px-5 focus:py-3 focus:text-vanilla">
+        Skip to content
+      </a>
       <Header />
-      <main className="flex-1">
+      <main id="main" className="flex-1">
         <Hero />
-        <CTABanner
-          eyebrow="Now Taking Orders"
-          title="Reserve your batch for the week."
-          subtitle="Each week we bake a small number of cookie cakes and dozens. Once they're spoken for, that's it until next week."
-          ctaLabel="View the Menu"
-          ctaHref="#menu"
-          variant="tan"
-        />
+        <RosetteBorder frosting="strawberry" />
         <Menu />
         <CookieCakeGuide />
-        <CookieClub />
         <Testimonials />
-        <CTABanner
-          eyebrow="Limited Availability Each Week"
-          title="A small kitchen. A short list."
-          subtitle="We keep it intentionally small so every cookie leaves the kitchen at its best. Send a request and we'll confirm your spot."
-          ctaLabel="Request an Order"
-          ctaHref="#order"
-          variant="mauve"
-        />
+        <Wholesale />
+        <CookieClub />
         <OurStory />
         <Instagram />
-        <FAQ />
         <PickupMap />
+        <FAQ />
         <Referral />
         <OrderForm />
       </main>

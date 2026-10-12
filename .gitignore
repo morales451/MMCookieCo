@@ -22,3 +22,6 @@ pnpm-debug.log*
 # Impeccable: platform engine binary (launcher fetches it on demand) and local hook settings
 .claude/skills/impeccable/scripts/bin/
 .claude/settings.local.json
+
+# Impeccable review captures (regenerated each review round)
+.impeccable/review/

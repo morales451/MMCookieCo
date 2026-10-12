@@ -1,151 +1,141 @@
 import { useState } from 'react';
+import { Cookie } from './bake/bake.jsx';
 
 const tiers = [
   {
     label: 'Solo',
-    serving: '4 cookies / month',
+    count: 4,
+    serving: '4 cookies a month',
     price: '$15',
     perks: ['One flavor of your choice', 'Hand-packed each week', 'Cancel anytime'],
   },
   {
     label: 'Duo',
-    serving: '8 cookies / month',
+    count: 8,
+    serving: '8 cookies a month',
     price: '$28',
     perks: ['Mix two flavors', 'A small surprise each month', 'Cancel anytime'],
     featured: true,
   },
   {
     label: 'Family',
-    serving: '1 dozen / month',
+    count: 12,
+    serving: '1 dozen a month',
     price: '$40',
     perks: ['Mix three flavors', 'First dibs on seasonal flavors', 'Cancel anytime'],
   },
 ];
 
+const ROTATION = ['chocolateChip', 'funfetti', 'snickerdoodle', 'redVelvet', 'doubleChocolate'];
+
 export default function CookieClub() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle');
 
   function onSubmit(e) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
+    setStatus('sending');
+    const data = new FormData(e.currentTarget);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(data).toString(),
     })
-      .then(() => setSubmitted(true))
-      .catch(() => setSubmitted(true));
+      .then((res) => setStatus(res.ok ? 'done' : 'error'))
+      .catch(() => setStatus('error'));
   }
 
   return (
-    <section id="club" className="py-28 md:py-36 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            The Cookie Club
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-brown leading-tight">
-            Fresh cookies, every month.
-          </h2>
-          <p className="mt-6 text-brown/70 max-w-xl mx-auto leading-relaxed">
-            A small monthly subscription for the people who can't stop ordering
-            anyway. Pick your size, pick your flavors, and we handle the rest.
-          </p>
-          <p className="mt-3 inline-block text-xs uppercase tracking-widest text-mauve font-medium bg-mauve/15 px-4 py-1 rounded-full">
-            Launching soon — join the waitlist
+    <section id="club" className="bg-pink py-24 md:py-32" aria-labelledby="club-title">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
+          <div>
+            <p className="font-script text-[2rem] leading-none text-choc">Launching soon</p>
+            <h2 id="club-title" className="display mt-3 text-[clamp(3rem,7vw,5.5rem)] text-choc">
+              The Cookie Club: fresh cookies, every month.
+            </h2>
+          </div>
+          <p className="max-w-[44ch] text-lg leading-relaxed text-choc md:pb-2">
+            A small monthly subscription for the people who can't stop ordering anyway. Pick your size, pick your
+            flavors, and we handle the rest.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-          {tiers.map((tier) => (
-            <div
+        <ul className="mt-16 grid border-y-[3px] border-choc md:grid-cols-3">
+          {tiers.map((tier, t) => (
+            <li
               key={tier.label}
-              className={`relative bg-beige/40 rounded-2xl p-8 md:p-10 flex flex-col shadow-soft ${
-                tier.featured ? 'md:-translate-y-3 md:shadow-card bg-cream ring-1 ring-mauve/30' : ''
+              className={`flex flex-col py-8 md:px-8 md:py-10 ${t > 0 ? 'border-t-2 border-choc/25 md:border-l-2 md:border-t-0' : ''} ${
+                tier.featured ? 'md:bg-pink-soft/45' : ''
               }`}
             >
-              {tier.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mauve text-cream text-xs uppercase tracking-widest px-4 py-1 rounded-full">
-                  Most Popular
-                </span>
-              )}
-
-              <h3 className="font-serif text-3xl font-semibold text-brown">
-                {tier.label}
-              </h3>
-              <p className="mt-1 text-sm text-brown/55 uppercase tracking-wider">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="display text-[2.4rem] text-choc">{tier.label}</h3>
+                <p className="text-choc">
+                  <span className="text-[2.2rem] font-extrabold tabular">{tier.price}</span>
+                  <span className="font-semibold"> / mo</span>
+                </p>
+              </div>
+              <p className="mt-1 font-bold text-choc">
                 {tier.serving}
+                {tier.featured && <span className="ml-2 font-script text-[1.2rem] font-normal">most popular</span>}
               </p>
-
-              <p className="mt-6 font-serif text-4xl font-bold text-brown">
-                {tier.price}
-                <span className="text-sm font-sans font-normal text-brown/55 tracking-wider">
-                  {' '}
-                  / mo
-                </span>
-              </p>
-
-              <ul className="mt-7 space-y-2.5 text-sm text-brown/70 flex-1">
+              <div className="mt-6 grid grid-cols-6 gap-1" aria-hidden="true">
+                {Array.from({ length: tier.count }).map((_, i) => (
+                  <Cookie key={i} flavor={ROTATION[(i + t) % ROTATION.length]} seed={i * 5 + t * 17 + 1} className="w-full" />
+                ))}
+              </div>
+              <ul className="mt-6 space-y-2 text-choc">
                 {tier.perks.map((perk) => (
-                  <li key={perk} className="flex items-start gap-2">
-                    <span className="text-mauve mt-1">✦</span>
+                  <li key={perk} className="flex items-start gap-2.5">
+                    <svg viewBox="0 0 16 16" className="mt-1 h-4 w-4 shrink-0" aria-hidden="true">
+                      <path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                     <span>{perk}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="max-w-md mx-auto text-center">
-          {submitted ? (
-            <div className="bg-beige/50 rounded-2xl p-8">
-              <p className="text-xs uppercase tracking-widest text-tan font-medium">
-                You're In
-              </p>
-              <h3 className="mt-3 font-serif text-2xl text-brown">
-                We'll be in touch.
-              </h3>
-              <p className="mt-3 text-brown/70 leading-relaxed text-sm">
-                We'll email you the moment the Cookie Club opens up — usually
-                with a small founder's discount baked in.
+        <div className="mt-12 max-w-xl">
+          {status === 'done' ? (
+            <div role="status">
+              <h3 className="display text-[2rem] text-choc">You're on the list.</h3>
+              <p className="mt-2 text-lg leading-relaxed text-choc">
+                We'll email you the moment the Cookie Club opens up, usually with a small founder's discount baked in.
               </p>
             </div>
           ) : (
-            <form
-              name="club-waitlist"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={onSubmit}
-              className="space-y-3"
-            >
+            <form name="club-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit={onSubmit}>
               <input type="hidden" name="form-name" value="club-waitlist" />
               <p hidden>
                 <label>
                   Don't fill: <input name="bot-field" />
                 </label>
               </p>
-              <p className="text-sm text-brown/65 mb-2">
-                Drop your email and we'll let you know the second it goes live.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-2">
+              <label htmlFor="club-email" className="block text-lg font-bold text-choc">
+                Join the waitlist and we'll tell you the second it goes live.
+              </label>
+              <div className="mt-3 flex flex-col gap-2 sm:flex-row">
                 <input
+                  id="club-email"
                   type="email"
                   name="email"
                   required
                   placeholder="you@email.com"
                   autoComplete="email"
-                  className="flex-1 rounded-full border border-brown/15 bg-cream px-5 py-3 text-brown placeholder:text-brown/35 focus:border-mauve focus:ring-2 focus:ring-mauve/40 outline-none transition-colors text-sm"
+                  className="field mt-0 flex-1 rounded-full border-choc/25 px-5"
                 />
-                <button
-                  type="submit"
-                  className="px-6 py-3 rounded-full bg-brown text-cream font-medium tracking-wider text-xs uppercase shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:bg-mauve whitespace-nowrap"
-                >
-                  Join Waitlist
+                <button type="submit" className="btn-choc whitespace-nowrap" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Joining…' : 'Join the waitlist'}
                 </button>
               </div>
+              {status === 'error' && (
+                <p className="mt-3 font-semibold text-choc" role="alert">
+                  That didn't go through. Check your connection and try again, or DM us @mm_cookie_co.
+                </p>
+              )}
             </form>
           )}
         </div>

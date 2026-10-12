@@ -1,23 +1,137 @@
+@import '@fontsource-variable/bricolage-grotesque/standard.css';
+@import '@fontsource/leckerli-one/400.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    background: #2b1610;
+  }
+
+  body {
+    @apply bg-pink text-choc font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: #2b1610;
+    color: #f9b8cb;
+  }
+
+  :focus-visible {
+    outline: 3px solid #2b1610;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  .on-choc :focus-visible {
+    outline-color: #f9b8cb;
+  }
+
+  input,
+  textarea,
+  select {
+    caret-color: #c93a68;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 2px;
+  }
+
+  html {
+    scrollbar-color: #4a2a1c #2b1610;
+  }
 }
 
-body {
-  @apply bg-cream text-brown font-sans antialiased;
-}
+@layer components {
+  /* Heavy, slightly condensed bakery-sign grotesk for headlines. */
+  .display {
+    font-stretch: 80%;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    text-wrap: balance;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-serif;
+  .label {
+    font-stretch: 90%;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .btn-choc {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-choc px-7 py-3.5 text-base font-bold text-vanilla shadow-press transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-choc-soft hover:shadow-lift active:translate-y-0;
+  }
+
+  .btn-pink {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-pink px-7 py-3.5 text-base font-bold text-choc shadow-press transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-pink-soft hover:shadow-lift active:translate-y-0;
+  }
+
+  .field {
+    @apply mt-2 block w-full rounded-2xl border-2 border-choc/15 bg-vanilla px-4 py-3 text-choc placeholder:text-choc/45 outline-none transition-colors focus:border-choc;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
-    scroll-behavior: auto;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Piping: each line of a message is revealed left to right, like a bag drawn across the cake. */
+.pipe-sweep {
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: pipe 0.95s cubic-bezier(0.45, 0.05, 0.35, 1) both;
+}
+
+@keyframes pipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.cake-stage {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-stage {
+  position: relative;
+}
+
+.hero-cake {
+  position: absolute;
+  left: 50%;
+  top: -0.5rem;
+  width: 200vw;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 640px) {
+  .hero-stage {
+    position: static;
+  }
+
+  .hero-cake {
+    top: 50%;
+    width: max(126vh, 100vw);
+    transform: translate(-50%, -46%);
   }
 }

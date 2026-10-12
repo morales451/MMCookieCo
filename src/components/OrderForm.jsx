@@ -1,34 +1,46 @@
-const fieldClasses =
-  'mt-2 block w-full rounded-xl border border-brown/15 bg-cream px-4 py-3 text-brown placeholder:text-brown/35 focus:border-mauve focus:ring-2 focus:ring-mauve/40 outline-none transition-colors';
+import { useEffect, useRef, useState } from 'react';
+import { PREFILL_EVENT } from '../lib/prefill.js';
 
-const labelClasses =
-  'block text-xs font-medium text-brown/80 uppercase tracking-widest';
+const fieldClasses = 'field';
+const labelClasses = 'block font-extrabold text-choc';
 
 export default function OrderForm() {
+  const [details, setDetails] = useState('');
+  const [prefilled, setPrefilled] = useState(false);
+  const nameRef = useRef(null);
+
+  useEffect(() => {
+    function onPrefill(e) {
+      setDetails(e.detail.text);
+      setPrefilled(true);
+      setTimeout(() => nameRef.current?.focus({ preventScroll: true }), 700);
+    }
+    window.addEventListener(PREFILL_EVENT, onPrefill);
+    return () => window.removeEventListener(PREFILL_EVENT, onPrefill);
+  }, []);
+
   return (
-    <section id="order" className="py-28 md:py-36 bg-beige">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <p className="text-xs uppercase tracking-widest text-tan font-medium">
-            Get In Touch
-          </p>
-          <h2 className="mt-4 font-serif text-4xl md:text-6xl font-bold text-brown leading-tight">
-            Request an Order
+    <section id="order" className="bg-dough py-24 md:py-32" aria-labelledby="order-title">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div>
+          <h2 id="order-title" className="display text-[clamp(3rem,7vw,5.5rem)] text-choc">
+            Request an order
           </h2>
-          <p className="mt-7 italic text-brown/65 max-w-xl mx-auto leading-relaxed">
-            This form is for order requests only. We'll review your request
-            and contact you directly to coordinate payment and confirm your
-            pickup or delivery details in Houston.
+          <p className="mt-6 max-w-[40ch] text-lg leading-relaxed text-choc">
+            This form is for order requests only. We'll review your request and contact you directly to coordinate
+            payment and confirm your pickup or delivery details in Houston.
+          </p>
+          <p className="mt-4 max-w-[40ch] leading-relaxed text-choc/85">
+            Cookie cakes need at least 5 days' notice, dozens at least 3. We invoice once your order is confirmed.
           </p>
         </div>
-
         <form
           name="order-request"
           method="POST"
           action="/thanks/"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          className="bg-cream rounded-2xl shadow-soft p-7 md:p-12 space-y-7"
+          className="space-y-6 rounded-[2rem] bg-vanilla p-6 shadow-lift sm:p-10"
         >
           <input type="hidden" name="form-name" value="order-request" />
           <p hidden>
@@ -37,10 +49,10 @@ export default function OrderForm() {
             </label>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div>
               <label htmlFor="full-name" className={labelClasses}>
-                Full Name <span className="text-mauve">*</span>
+                Full name <span className="text-pink-deep" aria-hidden="true">*</span>
               </label>
               <input
                 id="full-name"
@@ -48,13 +60,14 @@ export default function OrderForm() {
                 type="text"
                 required
                 autoComplete="name"
+                ref={nameRef}
                 className={fieldClasses}
               />
             </div>
 
             <div>
               <label htmlFor="email" className={labelClasses}>
-                Email <span className="text-mauve">*</span>
+                Email <span className="text-pink-deep" aria-hidden="true">*</span>
               </label>
               <input
                 id="email"
@@ -68,7 +81,7 @@ export default function OrderForm() {
 
             <div>
               <label htmlFor="phone" className={labelClasses}>
-                Phone <span className="text-mauve">*</span>
+                Phone <span className="text-pink-deep" aria-hidden="true">*</span>
               </label>
               <input
                 id="phone"
@@ -82,7 +95,7 @@ export default function OrderForm() {
 
             <div>
               <label htmlFor="pickup-date" className={labelClasses}>
-                Pickup / Delivery Date <span className="text-mauve">*</span>
+                Pickup or delivery date <span className="text-pink-deep" aria-hidden="true">*</span>
               </label>
               <input
                 id="pickup-date"
@@ -96,7 +109,7 @@ export default function OrderForm() {
 
           <div>
             <label htmlFor="allergies" className={labelClasses}>
-              Allergies / Dietary Restrictions
+              Allergies or dietary restrictions
             </label>
             <input
               id="allergies"
@@ -109,21 +122,28 @@ export default function OrderForm() {
 
           <div>
             <label htmlFor="order-details" className={labelClasses}>
-              What would you like to order? <span className="text-mauve">*</span>
+              What would you like to order? <span className="text-pink-deep" aria-hidden="true">*</span>
             </label>
+            {prefilled && (
+              <p className="mt-1 text-sm font-semibold text-pink-deep" role="status">
+                Your cake from the top of the page is filled in below. Edit anything you like.
+              </p>
+            )}
             <textarea
               id="order-details"
               name="order-details"
               required
               rows={4}
               placeholder="e.g. 1 cookie cake (chocolate chip) for Saturday"
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
               className={fieldClasses}
             />
           </div>
 
           <div>
             <label htmlFor="custom-notes" className={labelClasses}>
-              Custom Notes
+              Custom notes
             </label>
             <textarea
               id="custom-notes"
@@ -136,7 +156,7 @@ export default function OrderForm() {
 
           <div>
             <label htmlFor="referred-by" className={labelClasses}>
-              Referred By <span className="text-brown/40 normal-case tracking-normal text-[10px]">(optional — they get $5 off too)</span>
+              Referred by <span className="font-semibold text-choc/70">(optional, they get $5 off too)</span>
             </label>
             <input
               id="referred-by"
@@ -147,12 +167,9 @@ export default function OrderForm() {
             />
           </div>
 
-          <div className="pt-2 text-center md:text-left">
-            <button
-              type="submit"
-              className="w-full md:w-auto px-10 py-3.5 rounded-full bg-brown text-cream font-medium tracking-wider text-sm uppercase shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:bg-mauve"
-            >
-              Send Order Request
+          <div className="pt-2">
+            <button type="submit" className="btn-choc w-full text-lg sm:w-auto">
+              Send order request
             </button>
           </div>
         </form>

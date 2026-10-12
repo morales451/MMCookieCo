@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://mmcookieco.netlify.app/wholesale/" />
     <link rel="icon" type="image/png" href="/unnamed.png" />
     <link rel="apple-touch-icon" href="/unnamed.png" />
-    <meta name="theme-color" content="#F7F3EF" />
+    <meta name="theme-color" content="#F06A93" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MM Cookie Co." />
@@ -26,17 +26,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Leckerli+One&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --cream: #f7f3ef;
-        --beige: #e8ded6;
-        --tan: #d2b8a3;
-        --mauve: #c9a3a3;
-        --lilac: #d8cfe3;
-        --brown: #6b4f3a;
+        --cream: #fff4e6;
+        --beige: #f9b8cb;
+        --tan: #c93a68;
+        --mauve: #f06a93;
+        --lilac: #f9b8cb;
+        --brown: #2b1610;
       }
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -44,19 +44,19 @@
       body {
         background: var(--cream);
         color: var(--brown);
-        font-family: 'Montserrat', system-ui, sans-serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         line-height: 1.6;
       }
       a { color: inherit; }
-      .serif { font-family: 'Playfair Display', Georgia, serif; }
+      .serif { font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
       .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
       .narrow { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
 
       header.site {
         position: sticky; top: 0; z-index: 50;
-        background: rgba(247, 243, 239, 0.92);
+        background: rgba(255, 244, 230, 0.92);
         backdrop-filter: blur(8px);
-        border-bottom: 1px solid rgba(107, 79, 58, 0.06);
+        border-bottom: 1px solid rgba(43, 22, 16, 0.06);
       }
       header.site .row {
         max-width: 1100px; margin: 0 auto; padding: 1rem 1.5rem;
@@ -68,21 +68,21 @@
       }
       header.site img.logo {
         height: 44px; width: 44px; border-radius: 9999px; object-fit: cover;
-        box-shadow: inset 0 0 0 1px rgba(107, 79, 58, 0.1);
+        box-shadow: inset 0 0 0 1px rgba(43, 22, 16, 0.1);
       }
       header.site .brand-name {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         font-weight: 700; font-size: 1.15rem;
       }
       header.site nav a {
         font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em;
-        text-decoration: none; color: rgba(107, 79, 58, 0.7);
+        text-decoration: none; color: rgba(43, 22, 16, 0.7);
         margin-left: 1.75rem; transition: color 0.2s ease;
       }
       header.site nav a:hover { color: var(--mauve); }
 
       .hero {
-        background: radial-gradient(circle at 50% 25%, var(--cream) 0%, #efe7df 60%, var(--beige) 100%);
+        background: radial-gradient(circle at 50% 25%, var(--cream) 0%, #fde3ea 60%, var(--beige) 100%);
         padding: 5rem 0 6rem;
         text-align: center;
         position: relative;
@@ -93,16 +93,16 @@
         color: var(--tan); font-weight: 500;
       }
       h1 {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700;
         line-height: 1.1; margin: 1rem 0 1.5rem;
       }
-      .lead { font-size: 1.1rem; color: rgba(107, 79, 58, 0.7); max-width: 36rem; margin: 0 auto; }
+      .lead { font-size: 1.1rem; color: rgba(43, 22, 16, 0.7); max-width: 36rem; margin: 0 auto; }
 
       section { padding: 5rem 0; }
       section.beige { background: rgba(232, 222, 214, 0.4); }
       section h2 {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
         line-height: 1.15; margin: 0.75rem 0 1.25rem;
       }
@@ -114,18 +114,18 @@
       }
       .card {
         background: var(--cream); border-radius: 1.25rem; padding: 2rem;
-        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+        box-shadow: 0 6px 24px rgba(43, 22, 16, 0.08);
       }
       .card .card-eyebrow {
         font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
         color: var(--tan); font-weight: 500;
       }
       .card h3 {
-        font-family: 'Playfair Display', Georgia, serif;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
         font-weight: 600; font-size: 1.5rem; margin: 0.5rem 0 0.25rem;
       }
-      .card .price { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 2rem; margin: 1rem 0 0.5rem; }
-      .card ul { list-style: none; padding: 0; margin: 1rem 0 0; font-size: 0.9rem; color: rgba(107, 79, 58, 0.75); }
+      .card .price { font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 2rem; margin: 1rem 0 0.5rem; }
+      .card ul { list-style: none; padding: 0; margin: 1rem 0 0; font-size: 0.9rem; color: rgba(43, 22, 16, 0.75); }
       .card ul li { padding-left: 1.25rem; position: relative; margin: 0.4rem 0; }
       .card ul li::before { content: '✦'; color: var(--mauve); position: absolute; left: 0; top: 0; }
 
@@ -139,22 +139,22 @@
         font-size: 0.95rem;
         border-left: 3px solid var(--mauve);
       }
-      .use strong { display: block; font-family: 'Playfair Display', Georgia, serif; font-weight: 600; color: var(--brown); margin-bottom: 0.25rem; }
-      .use span { color: rgba(107, 79, 58, 0.65); font-size: 0.85rem; }
+      .use strong { display: block; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 600; color: var(--brown); margin-bottom: 0.25rem; }
+      .use span { color: rgba(43, 22, 16, 0.65); font-size: 0.85rem; }
 
       form.inquiry {
         background: var(--cream); border-radius: 1.5rem; padding: 2.5rem 1.75rem;
-        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.08);
+        box-shadow: 0 6px 24px rgba(43, 22, 16, 0.08);
         display: grid; gap: 1.25rem;
       }
       form.inquiry .row2 { display: grid; gap: 1.25rem; grid-template-columns: 1fr 1fr; }
       @media (max-width: 600px) { form.inquiry .row2 { grid-template-columns: 1fr; } }
       form.inquiry label {
         display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
-        color: rgba(107, 79, 58, 0.8); font-weight: 500; margin-bottom: 0.5rem;
+        color: rgba(43, 22, 16, 0.8); font-weight: 500; margin-bottom: 0.5rem;
       }
       form.inquiry input, form.inquiry textarea, form.inquiry select {
-        width: 100%; border: 1px solid rgba(107, 79, 58, 0.15);
+        width: 100%; border: 1px solid rgba(43, 22, 16, 0.15);
         background: var(--cream); border-radius: 0.75rem;
         padding: 0.85rem 1rem; font-family: inherit; font-size: 1rem; color: var(--brown);
         outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -168,10 +168,10 @@
         padding: 0.95rem 2rem; border-radius: 9999px;
         font-family: inherit; font-size: 0.85rem; font-weight: 500;
         text-transform: uppercase; letter-spacing: 0.15em;
-        box-shadow: 0 6px 24px rgba(107, 79, 58, 0.12);
+        box-shadow: 0 6px 24px rgba(43, 22, 16, 0.12);
         transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
       }
-      form.inquiry button:hover { transform: translateY(-2px); background: var(--mauve); box-shadow: 0 10px 28px rgba(107, 79, 58, 0.18); }
+      form.inquiry button:hover { transform: translateY(-2px); background: var(--mauve); box-shadow: 0 10px 28px rgba(43, 22, 16, 0.18); }
       .req { color: var(--mauve); }
       .hidden-honeypot { display: none; }
 
@@ -180,7 +180,7 @@
         padding: 3rem 0;
         text-align: center;
         font-size: 0.85rem;
-        color: rgba(107, 79, 58, 0.65);
+        color: rgba(43, 22, 16, 0.65);
       }
       footer.site a { color: var(--brown); text-decoration: none; font-weight: 500; }
       footer.site a:hover { color: var(--mauve); }
@@ -188,6 +188,8 @@
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; scroll-behavior: auto; }
       }
+          h1, h2, h3, .serif { font-weight: 800; font-stretch: 80%; letter-spacing: -0.03em; line-height: 0.98; }
+      ::selection { background: #2b1610; color: #f9b8cb; }
     </style>
   </head>
   <body>
@@ -222,7 +224,7 @@
             background: var(--brown); color: var(--cream);
             text-decoration: none; font-size: 0.85rem; font-weight: 500;
             text-transform: uppercase; letter-spacing: 0.15em;
-            box-shadow: 0 6px 24px rgba(107, 79, 58, 0.12);
+            box-shadow: 0 6px 24px rgba(43, 22, 16, 0.12);
             transition: transform 0.25s ease, background 0.25s ease;
           "
           onmouseover="this.style.transform='translateY(-2px)';this.style.background='var(--mauve)'"
@@ -248,7 +250,7 @@
           <div class="card">
             <p class="card-eyebrow">Small</p>
             <h3>The Office Drop</h3>
-            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+            <p style="color: rgba(43, 22, 16, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
               Two dozen cookies. Perfect for a small team meeting, a client
               touch, or a Friday afternoon win.
             </p>
@@ -263,7 +265,7 @@
           <div class="card">
             <p class="card-eyebrow">Medium</p>
             <h3>The Team Box</h3>
-            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+            <p style="color: rgba(43, 22, 16, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
               Four dozen cookies. Great for a department, a client closing, or
               a thoughtful holiday round.
             </p>
@@ -278,7 +280,7 @@
           <div class="card">
             <p class="card-eyebrow">Large</p>
             <h3>The Event Spread</h3>
-            <p style="color: rgba(107, 79, 58, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
+            <p style="color: rgba(43, 22, 16, 0.65); font-size: 0.9rem; margin-top: 0.5rem;">
               Eight dozen cookies. Built for conferences, weddings, launches,
               and offices that want to be remembered.
             </p>

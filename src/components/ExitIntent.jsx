@@ -31,46 +31,42 @@ export default function ExitIntent() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="exit-intent-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brown/40 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-choc/60 p-4"
       onClick={close}
     >
       <div
-        className="bg-cream rounded-2xl p-8 md:p-10 max-w-md w-full shadow-card relative"
+        className="relative w-full max-w-md rounded-[2rem] bg-pink p-8 shadow-lift md:p-10"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           aria-label="Close"
           onClick={close}
-          className="absolute top-4 right-4 h-8 w-8 rounded-full text-brown/50 hover:text-brown hover:bg-beige flex items-center justify-center text-xl leading-none transition-colors"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-choc transition-colors hover:bg-choc hover:text-pink"
         >
-          ×
+          <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden="true">
+            <path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+          </svg>
         </button>
 
         {submitted ? (
           <div className="text-center py-4">
-            <p className="text-xs uppercase tracking-widest text-tan font-medium">
-              Welcome
-            </p>
-            <h3 className="mt-3 font-serif text-3xl text-brown">
+            <h3 className="display text-[2.4rem] text-choc">
               You're on the list.
             </h3>
-            <p className="mt-4 text-brown/70 leading-relaxed">
+            <p className="mt-4 text-lg leading-relaxed text-choc">
               We'll send the menu the day before each fresh batch goes live.
             </p>
           </div>
         ) : (
           <>
-            <p className="text-xs uppercase tracking-widest text-tan font-medium">
-              Wait —
-            </p>
             <h3
               id="exit-intent-title"
-              className="mt-3 font-serif text-3xl md:text-4xl text-brown leading-tight"
+              className="display pr-8 text-[2.6rem] text-choc"
             >
               Get the weekly menu.
             </h3>
-            <p className="mt-4 text-brown/70 leading-relaxed">
+            <p className="mt-4 text-lg leading-relaxed text-choc">
               We send a short note each week with what's coming out of the
               oven. No spam, ever.
             </p>
@@ -112,11 +108,12 @@ export default function ExitIntent() {
                 required
                 placeholder="you@email.com"
                 autoComplete="email"
-                className="w-full rounded-xl border border-brown/15 bg-cream px-4 py-3 text-brown placeholder:text-brown/35 focus:border-mauve focus:ring-2 focus:ring-mauve/40 outline-none transition-colors"
+                aria-label="Email address"
+                className="field mt-0"
               />
               <button
                 type="submit"
-                className="w-full px-6 py-3 rounded-full bg-brown text-cream font-medium tracking-wider text-xs md:text-sm uppercase shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card hover:bg-mauve"
+                className="btn-choc w-full"
               >
                 Send me the menu
               </button>
@@ -125,7 +122,7 @@ export default function ExitIntent() {
             <button
               type="button"
               onClick={close}
-              className="mt-4 text-xs uppercase tracking-widest text-brown/50 hover:text-brown transition-colors"
+              className="mt-4 font-semibold text-choc underline decoration-choc/40 hover:decoration-choc"
             >
               No thanks
             </button>
