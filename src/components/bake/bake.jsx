@@ -142,9 +142,8 @@ function crestPath(r) {
   return `M${r * 0.12},${-r * 0.03} Q${r * 0.48},${-r * 0.2} ${r * 0.86},${-r * 0.06}`;
 }
 
-export function Rosette({ x, y, r, frosting, rotate = 0, sprinkles = 0, seed = 1 }) {
-  const f = FROSTINGS[frosting] || FROSTINGS.strawberry;
-  const rand = rng(seed);
+function RosetteShape({ frosting, r = 100 }) {
+  const f = FROSTINGS[frosting];
   const ridges = (count, len, twist) =>
     Array.from({ length: count }).map((_, i) => (
       <g key={`${count}-${i}`} transform={`rotate(${(i / count) * 360 + twist})`}>
@@ -153,11 +152,37 @@ export function Rosette({ x, y, r, frosting, rotate = 0, sprinkles = 0, seed = 1
       </g>
     ));
   return (
-    <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
+    <>
       <circle r={r * 0.9} fill={f.ridge} />
       {ridges(8, r, 0)}
       {ridges(6, r * 0.62, 28)}
       {ridges(4, r * 0.32, 64)}
+    </>
+  );
+}
+
+// Each frosting's rosette is drawn once here and reused everywhere with <use>,
+// which keeps a page of piped borders to a few thousand nodes instead of tens.
+export function RosetteSprite() {
+  return (
+    <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true" focusable="false">
+      <defs>
+        {Object.keys(FROSTINGS).map((id) => (
+          <symbol key={id} id={`rosette-${id}`} viewBox="-100 -100 200 200" overflow="visible">
+            <RosetteShape frosting={id} />
+          </symbol>
+        ))}
+      </defs>
+    </svg>
+  );
+}
+
+export function Rosette({ x, y, r, frosting, rotate = 0, sprinkles = 0, seed = 1 }) {
+  const id = FROSTINGS[frosting] ? frosting : 'strawberry';
+  const rand = rng(seed);
+  return (
+    <g transform={`translate(${x} ${y}) rotate(${rotate})`}>
+      <use href={`#rosette-${id}`} x={-r} y={-r} width={r * 2} height={r * 2} />
       {Array.from({ length: sprinkles }).map((_, i) => {
         const t = rand() * Math.PI * 2;
         const d = r * (0.2 + rand() * 0.5);
@@ -207,7 +232,7 @@ function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 
     );
   }
   if (f.bits === 'sprinkles') {
-    const n = Math.round(70 * area * density);
+    const n = Math.round(42 * area * density);
     return scatter(rand, n, rMin, rMax, cx, cy).map(([x, y], i) => (
       <rect
         key={i}
@@ -222,7 +247,7 @@ function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 
     ));
   }
   if (f.bits === 'cinnamon') {
-    const n = Math.round(260 * area * density);
+    const n = Math.round(110 * area * density);
     return scatter(rand, n, rMin, rMax, cx, cy).map(([x, y], i) => (
       <circle key={i} cx={x} cy={y} r={(0.5 + rand() * 1.3) * unit} fill={i % 5 === 0 ? '#FFF6EA' : '#8A4B1E'} opacity={i % 5 === 0 ? 0.85 : 0.55} />
     ));

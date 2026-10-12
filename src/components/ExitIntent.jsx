@@ -5,6 +5,7 @@ const STORAGE_KEY = 'mmcc_exit_intent_dismissed';
 export default function ExitIntent() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -88,12 +89,13 @@ export default function ExitIntent() {
                   },
                   body: new URLSearchParams(data).toString(),
                 })
-                  .then(() => {
+                  .then((res) => {
+                    if (!res.ok) throw new Error('failed');
                     setSubmitted(true);
                     sessionStorage.setItem(STORAGE_KEY, '1');
                     setTimeout(() => setOpen(false), 2200);
                   })
-                  .catch(() => setSubmitted(true));
+                  .catch(() => setFailed(true));
               }}
             >
               <input type="hidden" name="form-name" value="newsletter" />
@@ -111,6 +113,11 @@ export default function ExitIntent() {
                 aria-label="Email address"
                 className="field"
               />
+              {failed && (
+                <p className="font-semibold text-choc" role="alert">
+                  That didn't go through. Try again, or DM us @mm_cookie_co.
+                </p>
+              )}
               <button
                 type="submit"
                 className="btn-choc w-full"

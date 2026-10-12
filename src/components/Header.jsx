@@ -1,7 +1,7 @@
 const links = [
+  { href: '#top', label: 'Cookie Nachos' },
+  { href: '#cakes', label: 'Cookie cakes' },
   { href: '#menu', label: 'Menu' },
-  { href: '#cake-guide', label: 'Cake sizes' },
-  { href: '#story', label: 'Our story' },
   { href: '#faq', label: 'FAQ' },
 ];
 
@@ -43,6 +43,18 @@ export default function Header() {
           </a>
         </nav>
       </div>
+      {/* Small screens keep the section links as a scrolling row instead of hiding them. */}
+      <nav aria-label="Sections" className="lg:hidden">
+        <ul className="flex gap-1 overflow-x-auto px-3 pb-2 [scrollbar-width:none]">
+          {links.map((link) => (
+            <li key={link.href} className="shrink-0">
+              <a href={link.href} className="block rounded-full bg-pink-soft/50 px-3.5 py-1.5 text-sm font-bold text-choc hover:bg-choc hover:text-pink-soft">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
   );
 }

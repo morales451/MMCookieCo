@@ -45,7 +45,7 @@ function Tray() {
           flavor={flavor}
           seed={i * 11 + 4}
           className="absolute w-[34%]"
-          style={{ left: `${[0, 22, 44, 66, 11, 55][i]}%`, top: `${[0, 8, 2, 10, 46, 44][i]}%`, transform: `rotate(${i * 53}deg)` }}
+          style={{ left: `${[0, 21, 42, 62, 11, 52][i]}%`, top: `${[0, 8, 2, 10, 46, 44][i]}%`, transform: `rotate(${i * 53}deg)` }}
         />
       ))}
     </div>

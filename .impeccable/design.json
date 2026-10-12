@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T00:27:27+00:00",
+  "title": "Design System: MM Cookie Co.",
+  "extensions": {
+    "colorMeta": {
+      "strawberry-field": {
+        "role": "primary",
+        "displayName": "Strawberry Field",
+        "canonical": "#F06A93",
+        "tonalRamp": [
+          "#1D0009",
+          "#4A0020",
+          "#7C003A",
+          "#A82657",
+          "#D04D78",
+          "#F8719A",
+          "#FFAFC3",
+          "#FEE8ED"
+        ]
+      },
+      "raspberry-ink": {
+        "role": "primary",
+        "displayName": "Raspberry Ink",
+        "canonical": "#C93A68",
+        "tonalRamp": [
+          "#1E0007",
+          "#4A021E",
+          "#7C0536",
+          "#AD1B52",
+          "#D64672",
+          "#FF6C94",
+          "#FEB0C0",
+          "#FFE8EC"
+        ]
+      },
+      "pink-buttercream": {
+        "role": "primary",
+        "displayName": "Pink Buttercream",
+        "canonical": "#F9B8CB",
+        "tonalRamp": [
+          "#1D000A",
+          "#411024",
+          "#632E40",
+          "#864E60",
+          "#AA6E81",
+          "#CF91A3",
+          "#F5B4C7",
+          "#FFE7EE"
+        ]
+      },
+      "baked-dough": {
+        "role": "secondary",
+        "displayName": "Baked Dough",
+        "canonical": "#DDA15E",
+        "tonalRamp": [
+          "#140800",
+          "#371F01",
+          "#5E3803",
+          "#885409",
+          "#AD742F",
+          "#D39754",
+          "#F9BB78",
+          "#FEEBD7"
+        ]
+      },
+      "dark-chocolate": {
+        "role": "neutral",
+        "displayName": "Dark Chocolate",
+        "canonical": "#2B1610",
+        "tonalRamp": [
+          "#180502",
+          "#341F18",
+          "#533B34",
+          "#745A53",
+          "#977B73",
+          "#BA9E95",
+          "#DFC2B9",
+          "#FFE9E3"
+        ]
+      },
+      "cocoa": {
+        "role": "neutral",
+        "displayName": "Cocoa",
+        "canonical": "#4A2A1C",
+        "tonalRamp": [
+          "#190500",
+          "#3A1C0E",
+          "#5A392A",
+          "#7B5848",
+          "#9E7868",
+          "#C39B8A",
+          "#E8BFAD",
+          "#FFE9E1"
+        ]
+      },
+      "vanilla-buttercream": {
+        "role": "neutral",
+        "displayName": "Vanilla Buttercream",
+        "canonical": "#FFF4E6",
+        "tonalRamp": [
+          "#110A03",
+          "#2C2419",
+          "#494035",
+          "#696054",
+          "#8A8174",
+          "#AEA396",
+          "#D2C7BA",
+          "#F8EDDF"
+        ]
+      },
+      "sprinkle-sky": {
+        "role": "tertiary",
+        "displayName": "Sprinkle Sky",
+        "canonical": "#4FA3F7",
+        "tonalRamp": [
+          "#000B1C",
+          "#002648",
+          "#004379",
+          "#0363AD",
+          "#2F85D7",
+          "#56AAFE",
+          "#A0CEFF",
+          "#E3F0FF"
+        ]
+      },
+      "sprinkle-lemon": {
+        "role": "tertiary",
+        "displayName": "Sprinkle Lemon",
+        "canonical": "#FFD447",
+        "tonalRamp": [
+          "#100A00",
+          "#2F2400",
+          "#514000",
+          "#765E03",
+          "#9D7F07",
+          "#C6A117",
+          "#EFC431",
+          "#FFEEBC"
+        ]
+      },
+      "sprinkle-mint": {
+        "role": "tertiary",
+        "displayName": "Sprinkle Mint",
+        "canonical": "#5CCB8F",
+        "tonalRamp": [
+          "#000F06",
+          "#002E18",
+          "#01502E",
+          "#047446",
+          "#1F9A61",
+          "#4EBE83",
+          "#75E3A6",
+          "#C4FFDA"
+        ]
+      },
+      "sprinkle-tangerine": {
+        "role": "tertiary",
+        "displayName": "Sprinkle Tangerine",
+        "canonical": "#FF8A3D",
+        "tonalRamp": [
+          "#180600",
+          "#3F1900",
+          "#683006",
+          "#994601",
+          "#CA6003",
+          "#F58132",
+          "#FEB68E",
+          "#FFEADE"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One section title per section."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Product, size, tier, and dialog names."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "The lead testimonial."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Intros and running copy, 34 to 60ch."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Every price, tabular, on its name's baseline."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Legends on the hero composer."
+      },
+      "script": {
+        "displayName": "Piped Script",
+        "purpose": "Piped cake messages, customer signatures, the footer wordmark."
+      }
+    },
+    "frostings": {
+      "strawberry": {
+        "fill": "#F48FB0",
+        "ridge": "#D9577F",
+        "pipeEdge": "#B8305C"
+      },
+      "vanilla": {
+        "fill": "#FFF6EA",
+        "ridge": "#E8CFAF",
+        "pipeEdge": "#B98A57"
+      },
+      "chocolate": {
+        "fill": "#6E3B26",
+        "ridge": "#3E1E12",
+        "pipeFill": "#5A2E1C",
+        "pipeEdge": "#24100A"
+      },
+      "sky": {
+        "fill": "#8CC4FA",
+        "ridge": "#4F8FD8",
+        "pipeEdge": "#2F6FC4"
+      }
+    },
+    "lighting": {
+      "azimuth": 225,
+      "doughElevation": 52,
+      "glossElevation": 60,
+      "specularElevation": 48,
+      "note": "All drawn baked goods share one upper-left light and a top-down view (src/components/bake/bake.jsx DoughFilter, GlossFilter)."
+    },
+    "shadows": [
+      {
+        "name": "press",
+        "value": "0 6px 14px -6px rgba(43, 22, 16, 0.5)",
+        "purpose": "Resting buttons and the header logo badge."
+      },
+      {
+        "name": "lift",
+        "value": "0 18px 40px -18px rgba(43, 22, 16, 0.55)",
+        "purpose": "Button hover; objects on the field: dozen box, map frame, story badge, dialog."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-lift",
+        "value": "200ms ease-out, translateY(-2px)",
+        "purpose": "Button hover rise with shadow growing to lift."
+      },
+      {
+        "name": "pipe-sweep",
+        "value": "0.95s cubic-bezier(0.45, 0.05, 0.35, 1)",
+        "purpose": "Piped message line reveal, left to right; 0.75s stagger per line; re-pipes after a 450ms typing pause."
+      },
+      {
+        "name": "select-snap",
+        "value": "150ms, scale(1.1)",
+        "purpose": "Selected frosting dollop snaps forward with a 3px chocolate ring."
+      },
+      {
+        "name": "cookie-turn",
+        "value": "500ms ease-out, rotate(-12deg) scale(1.05) / rotate(8deg)",
+        "purpose": "Drawn cookies and cakes turn on row hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.001ms",
+        "purpose": "All transitions and animations collapse under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Chocolate pill for the main action on pink, dough, or vanilla fields.",
+      "html": "<div class=\"ds-ground-pink\"><button class=\"ds-btn-choc\">Request this cake <svg viewBox=\"0 0 20 20\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div>",
+      "css": ".ds-ground-pink{background:#F06A93;padding:24px;} .ds-btn-choc{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;border:0;border-radius:9999px;padding:14px 28px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 14px -6px rgba(43,22,16,0.5);transition:transform 200ms ease-out,background-color 200ms ease-out,box-shadow 200ms ease-out;background:#2B1610;color:#FFF4E6;} .ds-btn-choc:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px rgba(43,22,16,0.55);background:#4A2A1C;} .ds-btn-choc:active{transform:translateY(0);} .ds-btn-choc:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
+    },
+    {
+      "name": "Button on Chocolate",
+      "kind": "button",
+      "refersTo": "button-on-chocolate",
+      "description": "Strawberry pill for the main action on a chocolate field.",
+      "html": "<div class=\"ds-ground-choc\"><a href=\"#\" class=\"ds-btn-pink\">Wholesale &amp; corporate orders <svg viewBox=\"0 0 20 20\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div>",
+      "css": ".ds-ground-choc{background:#2B1610;padding:24px;} .ds-btn-pink{display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;border:0;border-radius:9999px;padding:14px 28px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1rem;font-weight:700;cursor:pointer;box-shadow:0 6px 14px -6px rgba(43,22,16,0.5);transition:transform 200ms ease-out,background-color 200ms ease-out,box-shadow 200ms ease-out;background:#F06A93;color:#2B1610;text-decoration:none;} .ds-btn-pink:hover{transform:translateY(-2px);box-shadow:0 18px 40px -18px rgba(43,22,16,0.55);background:#F9B8CB;} .ds-btn-pink:active{transform:translateY(0);} .ds-btn-pink:focus-visible{outline:3px solid #F9B8CB;outline-offset:3px;}"
+    },
+    {
+      "name": "Outline Pill",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary destination in the header; fills chocolate on hover.",
+      "html": "<div class=\"ds-ground-pink2\"><a href=\"#\" class=\"ds-btn-outline\">Wholesale &amp; Corporate</a></div>",
+      "css": ".ds-ground-pink2{background:#F06A93;padding:24px;} .ds-btn-outline{display:inline-block;border:2px solid #2B1610;border-radius:9999px;padding:8px 16px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:0.95rem;font-weight:700;color:#2B1610;text-decoration:none;transition:background-color 150ms,color 150ms;} .ds-btn-outline:hover{background:#2B1610;color:#F9B8CB;} .ds-btn-outline:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
+    },
+    {
+      "name": "Underlined Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "No box: type set on the field over a 3px chocolate underline that turns raspberry on focus.",
+      "html": "<div class=\"ds-ground-dough\"><label class=\"ds-field-label\" for=\"ds-name\">Full name <span class=\"ds-req\">*</span></label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Your name\"></div>",
+      "css": ".ds-ground-dough{background:#DDA15E;padding:24px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-field-label{display:block;font-weight:800;color:#2B1610;} .ds-req{color:#C93A68;} .ds-field{display:block;width:100%;margin-top:4px;border:0;border-bottom:3px solid #2B1610;border-radius:0;background:transparent;padding:6px 0 8px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;font-size:1.125rem;font-weight:600;color:#2B1610;caret-color:#C93A68;outline:none;transition:border-color 150ms;} .ds-field::placeholder{color:rgba(43,22,16,0.55);font-weight:500;} .ds-field:focus{border-bottom-color:#C93A68;}"
+    },
+    {
+      "name": "Size Switch",
+      "kind": "chip",
+      "refersTo": "size-switch",
+      "description": "Every size visible at once in a chocolate track; the selection fills pink.",
+      "html": "<div class=\"ds-ground-pink3\"><div class=\"ds-switch\" role=\"radiogroup\"><button class=\"ds-opt\" aria-checked=\"false\"><b>10″</b><small>$35</small></button><button class=\"ds-opt ds-on\" aria-checked=\"true\"><b>12″</b><small>$55</small></button><button class=\"ds-opt\" aria-checked=\"false\"><b>16″</b><small>$75</small></button></div></div>",
+      "css": ".ds-ground-pink3{background:#F06A93;padding:24px;} .ds-switch{display:inline-flex;background:#2B1610;border-radius:9999px;padding:4px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-opt{border:0;background:transparent;color:#FFF4E6;border-radius:9999px;padding:6px 16px;cursor:pointer;line-height:1;font-variant-numeric:tabular-nums;transition:color 150ms,background-color 150ms;} .ds-opt b{display:block;font-size:0.95rem;font-weight:800;} .ds-opt small{display:block;margin-top:4px;font-size:0.72rem;font-weight:600;opacity:0.9;} .ds-opt:hover{color:#F9B8CB;} .ds-opt.ds-on{background:#F06A93;color:#2B1610;} .ds-opt:focus-visible{outline:3px solid #F9B8CB;outline-offset:2px;}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky pink header; bold chocolate links that fill chocolate on hover.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-mark\">MM Cookie Co.</span><span class=\"ds-links\"><a href=\"#\">Menu</a><a href=\"#\">Cake sizes</a><a href=\"#\">FAQ</a></span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:4.5rem;padding:0 24px;background:rgba(240,106,147,0.95);font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-mark{font-size:1.6rem;font-weight:800;font-stretch:80%;letter-spacing:-0.035em;color:#2B1610;} .ds-links{display:flex;gap:4px;} .ds-links a{border-radius:9999px;padding:8px 14px;font-weight:700;color:#2B1610;text-decoration:none;transition:background-color 150ms,color 150ms;} .ds-links a:hover{background:#2B1610;color:#F9B8CB;} .ds-links a:focus-visible{outline:3px solid #2B1610;outline-offset:3px;}"
+    },
+    {
+      "name": "Product Entry",
+      "kind": "card",
+      "refersTo": "product-entry",
+      "description": "Name and tabular price on one baseline over a chocolate rule; no card.",
+      "html": "<div class=\"ds-ground-choc2\"><ul class=\"ds-list\"><li><div class=\"ds-row\"><h3>Chocolate Chip</h3><p class=\"ds-price\">$4.00</p></div><p class=\"ds-note\">Crisp edges, soft middle, a flake of salt.</p></li><li><div class=\"ds-row\"><h3>Red Velvet</h3><p class=\"ds-price\">$4.50</p></div><p class=\"ds-note\">White chips in a deep red dough.</p></li></ul></div>",
+      "css": ".ds-ground-choc2{background:#2B1610;padding:24px;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-list{list-style:none;margin:0;padding:0;border-top:2px solid rgba(255,244,230,0.15);border-bottom:2px solid rgba(255,244,230,0.15);} .ds-list li+li{border-top:2px solid rgba(255,244,230,0.15);} .ds-list li{padding:20px 0;} .ds-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px;} .ds-row h3{margin:0;font-size:1.75rem;font-weight:800;font-stretch:80%;letter-spacing:-0.035em;line-height:0.92;color:#FFF4E6;} .ds-price{margin:0;font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums;color:#F06A93;} .ds-note{margin:8px 0 0;font-size:0.98rem;line-height:1.625;color:rgba(255,244,230,0.75);}"
+    },
+    {
+      "name": "Testimonial Signature",
+      "kind": "custom",
+      "refersTo": "script",
+      "description": "Quote in the grotesk, signed in piped script.",
+      "html": "<figure class=\"ds-quote\"><blockquote>“Best cookies in Houston, hands down.”</blockquote><figcaption>Matt Allen</figcaption></figure>",
+      "css": ".ds-quote{margin:0;background:#FFF4E6;padding:24px;border-top:3px solid #2B1610;font-family:'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;} .ds-quote blockquote{margin:0;font-size:1.9rem;font-weight:700;font-stretch:80%;letter-spacing:-0.035em;line-height:1.08;color:#2B1610;} .ds-quote figcaption{margin-top:16px;font-family:'Leckerli One', cursive;font-size:2rem;color:#C93A68;}"
+    },
+    {
+      "name": "Piped Message",
+      "kind": "custom",
+      "refersTo": "piped-message",
+      "description": "The visitor's words piped in glossy buttercream, drawn left to right.",
+      "html": "<div class=\"ds-ground-dough2\"><svg viewBox=\"0 0 1000 200\" class=\"ds-piped\" aria-label=\"Happy Birthday!\"><text x=\"500\" y=\"140\" text-anchor=\"middle\">Happy Birthday!</text></svg></div>",
+      "css": ".ds-ground-dough2{background:#DDA15E;padding:16px;} .ds-piped{display:block;width:100%;overflow:visible;} .ds-piped text{font-family:'Leckerli One', cursive;font-size:120px;fill:#F48FB0;stroke:#B8305C;stroke-width:4;paint-order:stroke;stroke-linejoin:round;clip-path:inset(0 100% 0 0);animation:ds-pipe 0.95s cubic-bezier(0.45,0.05,0.35,1) forwards;} @keyframes ds-pipe{to{clip-path:inset(0 0 0 0);}} @media (prefers-reduced-motion: reduce){.ds-piped text{animation:none;clip-path:none;}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Cookie Cake From Above",
+    "overview": "The site is a bakery table seen from directly overhead. Every cookie and cookie cake is drawn top-down at true relative scale, lit from the upper left, and the visitor's own words are piped across the largest one in glossy buttercream script. The page is made of the materials of the product itself: strawberry-buttercream pink, baked-dough gold, dark chocolate, and vanilla buttercream, with sprinkle confetti appearing only as sprinkles.\n\nEach section floods a single field color edge to edge and sets its content straight onto that field: headlines, paragraphs, prices, and rules, with no cards between the field and the type. Star-tip rosette borders are piped across the seams where one field meets the next. Headlines are a plump, condensed, extra-bold grotesk set tight and sized fluidly (the frontmatter gives each role's maximum; Typography gives the clamp); anything written by hand (a cake message, a customer's name, the wordmark in the footer) is in a piped script. Choices are all visible at once, and the selected one snaps forward.\n\nThe world was built to replace a cream boutique look with a serif title, centered logo, and a row of product cards; it does not return to that look.",
+    "keyCharacteristics": [
+      "Flooded single-color section fields: pink, chocolate, dough, vanilla.",
+      "Baked goods drawn as live SVG from directly above, one light source, one scale.",
+      "Glossy piped script for messages and names; heavy condensed grotesk for everything else.",
+      "Rosette borders on section seams instead of dividers or waves.",
+      "Product entries separated by chocolate rules, never boxed in cards.",
+      "Pill-shaped controls in chocolate; selection snaps forward with scale and a ring."
+    ],
+    "rules": [
+      {
+        "name": "The Flooded Field Rule",
+        "body": "Each section commits to exactly one field color (pink, dough, vanilla, or chocolate) from edge to edge. Adjacent sections change field; content never sits on a second tinted panel inside its field.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sprinkles-Only Rule",
+        "body": "Sky, lemon, mint, and tangerine exist only as sprinkles. They never color text, buttons, fields, or icons.",
+        "section": "colors"
+      },
+      {
+        "name": "The Chocolate Ink Rule",
+        "body": "Text and rules on light fields are Dark Chocolate, dimmed with opacity (85%, 70%, 55% for placeholders) rather than a separate gray. On chocolate fields, headlines and prices are Strawberry Field and copy is Vanilla Buttercream.",
+        "section": "colors"
+      },
+      {
+        "name": "The Piped Hand Rule",
+        "body": "Leckerli One is only for what is piped or signed: cake messages, customer names, the wordmark. It never sets a headline, a paragraph, a button, or a label.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Price Rule",
+        "body": "Prices and sizes always use tabular figures and sit on the same baseline as the name they belong to, justified to the opposite edge.",
+        "section": "typography"
+      },
+      {
+        "name": "The Objects-Lift Rule",
+        "body": "Only physical things (buttons, a box, a framed map, a badge, a dialog) cast a shadow. Text blocks, lists, and sections never do.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Light Rule",
+        "body": "Every drawn baked good is lit from the upper left (azimuth 225°) and seen from directly above. Never draw a cookie in perspective or from the side.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do flood each section with one field color (Strawberry Field, Baked Dough, Vanilla Buttercream, or Dark Chocolate) and set content straight onto it.",
+      "Do draw every cookie and cake from directly above, lit from the upper left, at true relative scale.",
+      "Do use Leckerli One only for piped messages, signatures, and the wordmark.",
+      "Do separate product entries with 3px and 2px chocolate rules, with name and tabular price on one baseline.",
+      "Do keep every choice visible at once and snap the selection forward (110% scale, 3px chocolate ring, or a pink fill in a chocolate track).",
+      "Do use pill buttons in Dark Chocolate on light fields and Strawberry Field on chocolate fields, rising 2px on hover.",
+      "Do mark section seams with a rosette border."
+    ],
+    "donts": [
+      "Don't return to the cream boutique look: no serif display titles, no centered-logo hero, no row of product cards.",
+      "Don't use sky, lemon, mint, or tangerine anywhere except as sprinkles.",
+      "Don't put product entries in cards or tinted boxes on top of a field.",
+      "Don't cast shadows from text blocks or sections; only physical objects lift.",
+      "Don't introduce a gray; dim Dark Chocolate or Vanilla Buttercream with opacity instead.",
+      "Don't draw baked goods in perspective, from the side, or as perfect circles."
+    ]
+  }
+}

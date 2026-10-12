@@ -8,7 +8,7 @@ const PLACEHOLDER = 'Happy Birthday!';
 
 function Dollop({ frosting }) {
   return (
-    <svg viewBox="-30 -30 60 60" className="h-8 w-8 sm:h-11 sm:w-11" aria-hidden="true">
+    <svg viewBox="-30 -30 60 60" className="h-10 w-10 sm:h-11 sm:w-11" aria-hidden="true">
       <defs>
         <GlossFilter id={`dollop-${frosting}`} blur={1.4} surface={3} />
       </defs>
@@ -19,7 +19,7 @@ function Dollop({ frosting }) {
   );
 }
 
-export default function Hero() {
+export default function CakeBuilder() {
   const [message, setMessage] = useState('');
   const [frosting, setFrosting] = useState('strawberry');
   const [size, setSize] = useState('classic');
@@ -45,11 +45,11 @@ export default function Hero() {
   }
 
   return (
-    <section id="top" className="relative overflow-hidden bg-pink" aria-labelledby="hero-title">
-      <div className="relative mx-auto flex min-h-[calc(100svh-4.5rem)] max-w-5xl flex-col items-center px-4 pb-10 pt-[7.5rem] text-center sm:justify-center sm:px-6 sm:py-10">
-        <h1 id="hero-title" className="relative z-[1] display max-w-[13ch] text-[clamp(2.25rem,6vw,4.75rem)] sm:max-w-[16ch] text-choc">
+    <section id="cakes" className="relative overflow-hidden bg-pink" aria-labelledby="cakes-title">
+      <div className="relative mx-auto flex min-h-[52rem] max-w-5xl flex-col items-center px-4 pb-10 pt-[7.5rem] text-center sm:justify-center sm:px-6 sm:py-10">
+        <h2 id="cakes-title" className="relative z-[1] display max-w-[13ch] text-[clamp(2.25rem,6vw,4.75rem)] sm:max-w-[16ch] text-choc">
           Cookie cakes, piped with whatever you need to say.
-        </h1>
+        </h2>
         <p className="relative z-[1] mt-3 max-w-[36ch] text-[0.98rem] font-medium leading-snug text-choc sm:mt-4 sm:text-lg">
           Baked fresh to order in Houston. Pick up in the Heights, or we deliver locally for a small fee.
         </p>
@@ -59,7 +59,7 @@ export default function Hero() {
           <div className="hero-cake pointer-events-none" aria-hidden="true">
           <CookieCake
             frosting={frosting}
-            clearCenter={0.87}
+            clearCenter={0.9}
             className="block w-full"
           />
         </div>
@@ -82,13 +82,13 @@ export default function Hero() {
               onChange={(e) => setMessage(e.target.value)}
               maxLength={40}
               placeholder="Type it and watch it pipe"
-              className="mt-1 block w-full border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1 text-[clamp(1.4rem,3vw,2rem)] font-bold text-choc placeholder:font-semibold placeholder:text-choc/55 focus:border-pink-deep focus:outline-none focus:ring-0 focus-visible:outline-none"
+              className="mt-1 block w-full border-0 border-b-[3px] border-choc bg-transparent px-0 pb-2 pt-1 text-[clamp(1.4rem,3vw,2rem)] font-bold text-choc placeholder:font-semibold placeholder:text-choc/75 focus:border-pink-deep focus:outline-none focus:ring-0 focus-visible:outline-none"
             />
           </label>
 
           <fieldset>
             <legend className="label text-choc">Frosting</legend>
-            <div className="mt-1 flex gap-1 sm:gap-1.5">
+            <div className="mt-1 flex gap-0.5 sm:gap-1.5">
               {Object.entries(FROSTINGS).map(([id, f]) => (
                 <label
                   key={id}
@@ -109,6 +109,7 @@ export default function Hero() {
                 </label>
               ))}
             </div>
+            <p className="mt-1.5 text-sm font-bold text-choc">{FROSTINGS[frosting].name}</p>
           </fieldset>
 
           <fieldset className="justify-self-end sm:justify-self-auto">
@@ -134,6 +135,9 @@ export default function Hero() {
                 </label>
               ))}
             </div>
+            <p className="mt-1.5 text-sm font-bold text-choc">
+              {CAKE_SIZES.find((x) => x.id === size).label}, {CAKE_SIZES.find((x) => x.id === size).serves.toLowerCase()}
+            </p>
           </fieldset>
 
           <div className="col-span-2 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -146,6 +150,7 @@ export default function Hero() {
             <a href="#menu" className="font-bold text-choc underline decoration-choc/40 hover:decoration-choc">
               Or browse cookies by the dozen
             </a>
+            <p className="w-full text-sm font-semibold text-choc">Order 5+ days ahead. Pickup in the Heights or local delivery.</p>
           </div>
         </form>
         </div>
