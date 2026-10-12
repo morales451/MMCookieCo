@@ -1,6 +1,7 @@
 import { Cookie } from './bake/bake.jsx';
 import CookieCake from './bake/CookieCake.jsx';
 import { COOKIES } from '../data.js';
+import { prefillOrder } from '../lib/prefill.js';
 
 export default function Menu() {
   return (
@@ -32,7 +33,7 @@ export default function Menu() {
               className="mx-auto w-full max-w-[26rem] transition-transform duration-500 ease-out group-hover:rotate-[8deg]"
             />
             <div className="mt-6 flex items-baseline justify-between gap-6 border-t-2 border-vanilla/20 pt-5">
-              <h3 id="menu-cake-name" className="display text-[2.2rem] text-vanilla">
+              <h3 id="menu-cake-name" className="display text-[2.1rem] text-vanilla">
                 Custom cookie cakes
               </h3>
               <p className="shrink-0 text-xl font-bold tabular text-pink">From $35</p>
@@ -55,15 +56,24 @@ export default function Menu() {
                   className="w-full transition-transform duration-500 ease-out group-hover:-rotate-12 group-hover:scale-105"
                 />
                 <div>
-                  <h3 className="display text-[1.75rem] text-vanilla">{c.name}</h3>
-                  <p className="mt-2 max-w-[48ch] text-[0.98rem] leading-relaxed text-vanilla/75">{c.description}</p>
+                  <h3 className="display text-[2rem] text-vanilla">{c.name}</h3>
+                  <p className="mt-2 max-w-[48ch] text-base leading-relaxed text-vanilla/75">{c.description}</p>
                   <p className="mt-2 font-bold tabular text-pink sm:hidden">
-                    {c.price} <span className="font-medium text-vanilla/70">each</span>
+                    {c.price} <span className="font-medium text-vanilla/80">each</span>
                   </p>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      prefillOrder({ source: 'dozen', key: `dozen-${c.name}`, text: `1 dozen ${c.name} (${c.price} each).` })
+                    }
+                    className="mt-3 min-h-[44px] rounded-full border-2 border-pink px-4 text-sm font-bold text-pink transition-colors hover:bg-pink hover:text-choc"
+                  >
+                    Add a dozen to my order
+                  </button>
                 </div>
                 <p className="hidden text-right font-bold tabular text-pink sm:block">
                   <span className="text-xl">{c.price}</span>
-                  <span className="block text-sm font-medium text-vanilla/70">each</span>
+                  <span className="block text-sm font-medium text-vanilla/80">each</span>
                 </p>
               </li>
             ))}

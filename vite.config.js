@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         wholesale: resolve(__dirname, 'wholesale/index.html'),
+        thanks: resolve(__dirname, 'thanks/index.html'),
       },
     },
   },

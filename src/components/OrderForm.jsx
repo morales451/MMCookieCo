@@ -1,34 +1,40 @@
 import { useEffect, useRef, useState } from 'react';
-import { PREFILL_EVENT } from '../lib/prefill.js';
+import { PREFILL_EVENT, SOURCES, earliestDate } from '../lib/prefill.js';
 
 const fieldClasses = 'field';
 const labelClasses = 'block font-extrabold text-choc';
 
 export default function OrderForm() {
   const [details, setDetails] = useState('');
-  const [prefilled, setPrefilled] = useState(false);
+  const [last, setLast] = useState(null);
+  const [minDays, setMinDays] = useState(3);
   const nameRef = useRef(null);
-
   const dateRef = useRef(null);
+  const lines = useRef({});
+  const mins = useRef({});
 
   useEffect(() => {
     function onPrefill(e) {
-      const { text, date } = e.detail;
-      // Never throw away what someone already typed: add the new item below it.
-      setDetails((current) => (current.trim() && !current.includes(text) ? `${current.trim()}\n${text}` : text));
+      const { source, key, text, date } = e.detail;
+      const prev = lines.current[key];
+      // Replace this builder's own line if it's still there; otherwise add it below
+      // whatever the visitor already typed.
+      setDetails((current) => {
+        if (prev && current.includes(prev)) return current.replace(prev, text);
+        return current.trim() ? `${current.trim()}\n${text}` : text;
+      });
+      lines.current[key] = text;
+      mins.current[key] = SOURCES[source]?.minDays ?? 3;
+      setMinDays(Math.max(...Object.values(mins.current)));
       if (date && dateRef.current) dateRef.current.value = date;
-      setPrefilled(true);
+      setLast(source);
       setTimeout(() => nameRef.current?.focus({ preventScroll: true }), 700);
     }
     window.addEventListener(PREFILL_EVENT, onPrefill);
     return () => window.removeEventListener(PREFILL_EVENT, onPrefill);
   }, []);
 
-  const minDate = (() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 3);
-    return d.toISOString().slice(0, 10);
-  })();
+  const minDate = earliestDate(minDays);
 
   return (
     <section id="order" className="bg-dough py-24 md:py-32" aria-labelledby="order-title">
@@ -41,9 +47,16 @@ export default function OrderForm() {
             This form is for order requests only. We'll review your request and contact you directly to coordinate
             payment and confirm your pickup or delivery details in Houston.
           </p>
-          <p className="mt-4 max-w-[40ch] leading-relaxed text-choc/85">
-            For Cookie Nachos, give us your headcount and date and we'll quote it. Cookie cakes need at least 5 days'
-            notice, dozens at least 3. We invoice once your order is confirmed.
+          <p className="mt-4 max-w-[40ch] leading-relaxed text-choc">
+            For Cookie Nachos, give us your headcount and date and we'll reply within 24 hours with a quote. Cookie
+            cakes need at least 5 days' notice, dozens at least 3. We invoice once your order is confirmed.
+          </p>
+          <p className="mt-4 max-w-[40ch] leading-relaxed text-choc">
+            Ordering for a company with branding or a big headcount?{' '}
+            <a href="/wholesale/" className="font-bold underline decoration-choc/40 hover:decoration-choc">
+              Our wholesale page
+            </a>{' '}
+            handles branded packs and boxes.
           </p>
           <div className="mt-10 border-t-[3px] border-choc pt-6">
             <h3 className="display text-[2rem] text-choc">Share the cookies. Save $5.</h3>
@@ -129,26 +142,37 @@ export default function OrderForm() {
             </div>
           </div>
 
-          <div>
-            <label htmlFor="allergies" className={labelClasses}>
-              Allergies or dietary restrictions
-            </label>
-            <input
-              id="allergies"
-              name="allergies"
-              type="text"
-              placeholder="e.g. nut-free, gluten-free"
-              className={fieldClasses}
-            />
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-x-10">
+            <div>
+              <label htmlFor="allergies" className={labelClasses}>
+                Allergies or dietary restrictions
+              </label>
+              <input
+                id="allergies"
+                name="allergies"
+                type="text"
+                placeholder="e.g. peanut allergy, gluten-free (we bake with nuts)"
+                className={fieldClasses}
+              />
+            </div>
+            <div>
+              <label htmlFor="company" className={labelClasses}>
+                Company <span className="font-semibold">(optional, for the invoice)</span>
+              </label>
+              <input id="company" name="company" type="text" autoComplete="organization" className={fieldClasses} />
+            </div>
           </div>
 
           <div>
             <label htmlFor="order-details" className={labelClasses}>
               What would you like to order? <span aria-hidden="true">*</span>
             </label>
-            {prefilled && (
-              <p className="mt-2 rounded-xl bg-vanilla px-3 py-2 text-sm font-bold text-choc" role="status">
-                Your order from above is filled in below. Edit anything you like.
+            {last && (
+              <p className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-xl bg-vanilla px-3 py-2 text-sm font-bold text-choc" role="status">
+                <span>Filled in from {SOURCES[last].label}. Edit anything you like.</span>
+                <a href={SOURCES[last].back} className="underline decoration-choc/40 hover:decoration-choc">
+                  Back to {SOURCES[last].label}
+                </a>
               </p>
             )}
             <textarea

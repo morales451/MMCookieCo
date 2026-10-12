@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: 'How much notice do you need?',
-    a: 'We ask for at least 5 days notice for cookie cakes and 3 days for dozens. Larger or fully custom orders may need a little more lead time — send the request and we\'ll confirm what works.',
+    a: 'For Cookie Nachos, send your headcount and date and we\'ll confirm availability and pricing within 24 hours. We ask for at least 5 days notice for cookie cakes and 3 days for dozens. Larger or fully custom orders may need a little more lead time — send the request and we\'ll confirm what works.',
   },
   {
     q: 'Where are you located? Do you deliver?',
@@ -53,7 +53,7 @@ export default function FAQ() {
         <div className="divide-y-2 divide-choc/15 border-y-[3px] border-choc">
           {faqs.map(({ q, a }) => (
             <details key={q} className="group py-2">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-xl py-4 text-[1.35rem] font-extrabold leading-tight text-choc marker:hidden [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-xl py-4 text-[1.5rem] font-extrabold leading-tight text-choc marker:hidden [&::-webkit-details-marker]:hidden">
                 <span>{q}</span>
                 <svg
                   viewBox="0 0 24 24"

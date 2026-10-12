@@ -15,7 +15,6 @@ const tiers = [
     serving: '8 cookies a month',
     price: '$28',
     perks: ['Mix two flavors', 'A small surprise each month', 'Cancel anytime'],
-    featured: true,
   },
   {
     label: 'Family',
@@ -61,20 +60,17 @@ export default function CookieClub() {
           {tiers.map((tier, t) => (
             <li
               key={tier.label}
-              className={`flex flex-col py-8 md:px-8 md:py-10 ${t > 0 ? 'border-t-2 border-choc/25 md:border-l-2 md:border-t-0' : ''} ${
-                tier.featured ? 'md:bg-pink-soft/45' : ''
-              }`}
+              className={`flex flex-col py-8 md:px-8 md:py-10 ${t > 0 ? 'border-t-2 border-choc/25 md:border-l-2 md:border-t-0' : ''}`}
             >
               <div className="flex items-baseline justify-between gap-4">
-                <h3 className="display text-[2.4rem] text-choc">{tier.label}</h3>
+                <h3 className="display text-[2.1rem] text-choc">{tier.label}</h3>
                 <p className="text-choc">
-                  <span className="text-[2.2rem] font-extrabold tabular">{tier.price}</span>
+                  <span className="text-[2.1rem] font-extrabold tabular">{tier.price}</span>
                   <span className="font-semibold"> / mo</span>
                 </p>
               </div>
               <p className="mt-1 font-bold text-choc">
                 {tier.serving}
-                {tier.featured && <span className="ml-2 font-script text-[1.2rem] font-normal">most popular</span>}
               </p>
               <div className="mt-6 grid grid-cols-6 gap-1" aria-hidden="true">
                 {Array.from({ length: tier.count }).map((_, i) => (

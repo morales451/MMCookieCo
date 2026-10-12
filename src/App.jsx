@@ -12,7 +12,6 @@ import PickupMap from './components/PickupMap.jsx';
 import FAQ from './components/FAQ.jsx';
 import OrderForm from './components/OrderForm.jsx';
 import Footer from './components/Footer.jsx';
-import StickyOrderCTA from './components/StickyOrderCTA.jsx';
 import RosetteBorder from './components/bake/RosetteBorder.jsx';
 import { RosetteSprite } from './components/bake/bake.jsx';
 
@@ -36,15 +35,14 @@ export default function App() {
         <RosetteBorder frosting="vanilla" />
         <Testimonials />
         <OurStory />
+        <CookieClub />
+        <Instagram />
         <PickupMap />
         <FAQ />
         <RosetteBorder frosting="vanilla" />
         <OrderForm />
-        <CookieClub />
-        <Instagram />
       </main>
       <Footer />
-      <StickyOrderCTA />
     </div>
   );
 }

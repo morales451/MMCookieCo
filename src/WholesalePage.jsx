@@ -118,7 +118,7 @@ export default function WholesalePage() {
                   />
                 </label>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <button type="submit" className="btn-choc text-[1.05rem]">
+                  <button type="submit" className="btn-choc text-lg">
                     {n ? `Quote ${n} packs` : 'Get a quote'}
                   </button>
                   <a href="#boxes" className="font-bold text-choc underline decoration-choc/40 hover:decoration-choc">
@@ -180,7 +180,7 @@ export default function WholesalePage() {
                     <p className="mt-2 max-w-[52ch] leading-relaxed text-choc">{b.note}</p>
                     <p className="mt-2 font-semibold text-choc">{b.perks.join(' · ')}</p>
                   </div>
-                  <p className="text-[2.2rem] font-extrabold tabular text-choc">{b.price}</p>
+                  <p className="text-[2.1rem] font-extrabold tabular text-choc">{b.price}</p>
                 </li>
               ))}
             </ul>

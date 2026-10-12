@@ -50,7 +50,7 @@ export default function Testimonials() {
           {rest.map((t) => (
             <figure key={t.name} className="mb-12 break-inside-avoid border-t-2 border-choc/20 pt-6">
               <blockquote className="text-lg leading-relaxed text-choc">“{t.quote}”</blockquote>
-              <figcaption className="mt-4 font-script text-[1.6rem] text-pink-deep">{t.name}</figcaption>
+              <figcaption className="mt-4 font-script text-[1.5rem] text-pink-deep">{t.name}</figcaption>
             </figure>
           ))}
         </div>

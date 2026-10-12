@@ -10,6 +10,7 @@ export default function CookieCake({
   seed = 11,
   chipDensity = 1.6,
   clearCenter = 0.8,
+  chipsBelow = -1,
   className = '',
   style,
 }) {
@@ -26,9 +27,10 @@ export default function CookieCake({
         rMax={405}
         unit={2.1}
         density={chipDensity * 0.19}
+        keep={chipsBelow > -1 ? (x, y) => y > 500 - 440 * chipsBelow : undefined}
       />
     ),
-    [seed, chipDensity, clearCenter],
+    [seed, chipDensity, clearCenter, chipsBelow],
   );
   const ring = useMemo(
     () =>

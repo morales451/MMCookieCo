@@ -1,11 +1,11 @@
 import { NachoPack } from './bake/Nachos.jsx';
-import { prefillOrder } from '../lib/prefill.js';
 
 const facts = [
   { term: 'Packed', value: 'One per guest: cookie chips and their own cup of buttercream dip, together in one pack.' },
   { term: 'Made for', value: 'Office parties, conferences, client meetings, real-estate closings, showers, and team events.' },
   { term: 'Flavors', value: "Chip and dip flavors rotate. Ask what's baking for your date." },
   { term: 'Pricing', value: 'Priced per pack and quoted by headcount, with pickup in the Heights or local delivery.' },
+  { term: 'Reply', value: 'Within 24 hours of your request, with per-pack pricing for your headcount and date.' },
 ];
 
 export default function EventPacks() {
@@ -31,13 +31,13 @@ export default function EventPacks() {
               ))}
             </dl>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-              <button
-                type="button"
+              <a
+                href="#top"
                 className="btn-pink"
-                onClick={() => prefillOrder('Cookie Nachos event packs. Guests: ___. Please send a quote.')}
+                onClick={() => setTimeout(() => document.getElementById('nacho-guests')?.focus({ preventScroll: true }), 500)}
               >
-                Request an event quote
-              </button>
+                Get a Cookie Nachos quote
+              </a>
               <a href="/wholesale/" className="font-bold text-vanilla underline decoration-vanilla/40 hover:decoration-vanilla">
                 Wholesale &amp; corporate orders
               </a>

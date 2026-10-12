@@ -206,12 +206,13 @@ export function Rosette({ x, y, r, frosting, rotate = 0, sprinkles = 0, seed = 1
 }
 
 // The bits baked into the top of a cookie.
-function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 100, unit = 1 }) {
+function Inclusions({ flavor, rand, rMax, rMin = 0, density = 1, cx = 100, cy = 100, unit = 1, keep }) {
   const f = FLAVORS[flavor];
   const area = (rMax * rMax - rMin * rMin) / (78 * 78);
   if (f.bits === 'chips' || f.bits === 'chunks' || f.bits === 'whiteChips') {
     const n = Math.round((f.bits === 'chunks' ? 16 : 14) * area * density);
-    const chips = scatter(rand, n, rMin, rMax, cx, cy).map(([x, y], i) => {
+    const pts = scatter(rand, n, rMin, rMax, cx, cy);
+    const chips = (keep ? pts.filter(([x, y]) => keep(x, y)) : pts).map(([x, y], i) => {
       const size = (f.bits === 'chunks' ? 7 : 5.5) * unit * (0.7 + rand() * 0.6);
       return { x, y, size, color: f.chip2 && i % 3 === 0 ? f.chip2 : f.chip, shape: blobPath(x, y, size, rand, 0.16, 12) };
     });

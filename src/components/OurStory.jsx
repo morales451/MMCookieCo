@@ -19,7 +19,7 @@ export default function OurStory() {
               Baked fresh for every order, MM Cookie Co. is all about simple, homemade treats that feel a little more
               special.
             </p>
-            <p className="font-semibold text-vanilla">
+            <p>
               Her deep love for baking and crafting the perfect dessert was inspired by her dad, who served as the head
               of the bakery for HEB.
             </p>

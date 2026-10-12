@@ -23,7 +23,8 @@ export function NachoChip({ seed = 1, dipped = false, frosting = '#FFF6EA', edge
       {!simple && bits}
       <g clipPath={`url(#nc${uid})`}>
         <g className={`nacho-coat ${dipped ? 'is-dipped' : ''}`} filter={simple ? undefined : `url(#nb${uid})`}>
-          <path d={DRIP} fill={frosting} stroke={edge} strokeWidth="2.5" />
+          <path d={DRIP} fill={simple ? frosting : `url(#nk${uid})`} stroke={edge} strokeWidth="2.5" />
+          {!simple && <path d="M60,26 Q100,14 140,26" fill="none" stroke="#fff" strokeOpacity="0.8" strokeWidth="6" strokeLinecap="round" />}
         </g>
       </g>
     </g>
@@ -41,6 +42,11 @@ export function NachoDefs({ uid }) {
         <stop offset="1" stopColor="#A9682B" />
       </linearGradient>
       <DoughFilter id={`nd${uid}`} />
+      <linearGradient id={`nk${uid}`} x1="0.5" y1="0" x2="0.5" y2="1">
+        <stop offset="0" stopColor="#FFFDF8" />
+        <stop offset="0.6" stopColor="#FFF1DC" />
+        <stop offset="1" stopColor="#EBD3B2" />
+      </linearGradient>
       <GlossFilter id={`nb${uid}`} blur={2.4} surface={4} />
       <clipPath id={`nc${uid}`}>
         <path d={CHIP_PATH} />

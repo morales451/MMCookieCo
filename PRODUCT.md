@@ -34,7 +34,7 @@ Cookie Nachos are the differentiator: cookie chips plus buttercream dip, packed 
 
 - Stack: Vite + React 18 + Tailwind CSS 3 single-page site, plus static HTML pages in `public/` (`/wholesale`, `/thanks`, `form.html`).
 - Shared kitchen with peanut butter and nuts: no allergen-free guarantee may be claimed.
-- **Cookie Nachos:** chip and dip flavors are not decided yet; say flavors rotate and never name one. Pricing is per pack but not yet set; quote by headcount until the owner supplies the price, minimum, and lead time.
+- **Cookie Nachos:** chip and dip flavors are not decided yet; say flavors rotate and never name one. Pricing is per pack but not yet set; quote by headcount until the owner supplies the price, minimum, and lead time. Quote requests get a reply within 24 hours (owner-confirmed).
 - **Unconfirmed, do not treat as final:** the menu flavors and prices ($4–$4.50 cookies; $35/$55/$75 cake sizes), lead times and minimums in the FAQ, accepted payment methods, and the Cookie Club tiers ($15/$28/$40). These are on the site today but the owner has not confirmed them as current.
 - **Unconfirmed:** the founder story (the father having led an HEB bakery) and the founder's name, which the site does not state.
 

@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="on-choc bg-choc text-vanilla">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 pb-12 pt-20 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="whitespace-nowrap font-script text-[2.6rem] leading-none text-pink sm:text-[3.2rem]">MM Cookie Co.</p>
+          <p className="whitespace-nowrap font-script text-[3rem] leading-none text-pink">MM Cookie Co.</p>
           <p className="mt-4 max-w-[30ch] text-lg leading-relaxed text-vanilla/80">
             Cookie Nachos, cookie cakes, and custom treats, baked fresh in Houston, TX.
           </p>

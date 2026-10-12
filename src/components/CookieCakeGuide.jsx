@@ -1,6 +1,6 @@
 import CookieCake from './bake/CookieCake.jsx';
 import { CAKE_SIZES } from '../data.js';
-import { prefillOrder } from '../lib/prefill.js';
+import { pickCakeSize } from '../lib/prefill.js';
 
 const LARGEST = Math.max(...CAKE_SIZES.map((s) => s.inches));
 
@@ -30,11 +30,6 @@ export default function CookieCakeGuide() {
                   className="w-full"
                   style={{ maxWidth: `${(s.inches / LARGEST) * 100}%` }}
                 />
-                {s.featured && (
-                  <span className="absolute -top-3 right-0 rotate-6 font-script text-[1.9rem] leading-none text-choc md:-right-4 md:top-6">
-                    most ordered
-                  </span>
-                )}
               </div>
               <div className="mt-6 border-t-[3px] border-choc pt-4">
                 <div className="flex items-baseline justify-between gap-4">
@@ -47,10 +42,10 @@ export default function CookieCakeGuide() {
                 <p className="mt-3 leading-relaxed text-choc/85">{s.note}</p>
                 <button
                   type="button"
-                  onClick={() => prefillOrder(`1 ${s.label} cookie cake (${s.inches}", ${s.price}). Flavor and message: `)}
+                  onClick={() => pickCakeSize(s.id)}
                   className="mt-4 font-bold text-choc underline decoration-choc/40 hover:decoration-choc"
                 >
-                  Request a {s.label.toLowerCase()} cake
+                  Design a {s.label.toLowerCase()} cake
                 </button>
               </div>
             </li>
